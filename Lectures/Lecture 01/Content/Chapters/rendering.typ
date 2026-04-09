@@ -32,34 +32,12 @@
   ]
 ]
 
-#slide[
-  = Canonical View Volume
-  #set align(horizon)
-  Welt verzerren, bis das Betrachtungsvolumen in Welt in ein paralleles kanonisches Betrachtungsvolumen passt
-  - vereinfacht Beschneiden/Entfernen verdeckter Oberflächen/Schattierungen
-  - durch die Multiplikation mit einer 4 x 4-Transformationsmatrix
-
-  #figure()[
-    #image("../../Images/canonical_view_volume.png", fit: "contain")
-  ]
-]
-
-#slide[
-  = Canonical View Volume
-  #set align(horizon)
-  Die 3D à 2D-Projektion (in die "Projektionsebene") ist jetzt einfach:
-  - Ignorieren Sie einfach den z-Wert!
-  - In Wirklichkeit behalten wir den z-Wert für die Entfernung verdeckter Oberﬂächen und Schattierungseﬀekte bei.
-
-  #figure()[
-    #image("../../Images/canonical_view_volume_2.png", fit: "contain")
-  ]
-]
+#include "Rendering/canonical_view_volume.typ"
 
 #slide[
   = Clipping
   #set align(horizon)
-  - Polygone außerhalb der Ansichtsvolumina verwerfen
+  - Polygone außerhalb der Ansichtsvolumen verwerfen
   - Polygone gegen Ansichtsvolumen beschneiden
     - auch leicht im Canonical View Volume durchführbar
   

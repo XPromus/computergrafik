@@ -51,8 +51,46 @@
 
 #slide[
   = #chapter_name
-  == TAA + SMAA mit Upscaling
+  == Temporal Anti-Aliasing (TAA)
   #set align(horizon)
+  *Temporal Anti-Aliasing (TAA)* \
+  - Sammlung von Bilddaten über mehrere Frames
+  - Reduzierung von Aliasing mit historischen Daten
+  - Braucht wenig Rechenleistung
+  Probleme:
+    - Ghosting durch schnelle Bewegungen oder veraltete historische Daten
+    - Potentieller Verlust von kleinen Details
+    - Erhöhter Speicherverbrauch durch das verwalten von historischen Daten
+]
+
+#slide[
+  = #chapter_name
+  == Temporal Anti-Aliasing (TAA)
+  #set align(horizon + center)
+  #figure(
+    image("../../../Images/forza_ghosting.jpg", fit: "contain", width: 90%),
+    caption: [Ghosting in Forza Horizon 5]
+  )<forza_ghosting>
+]
+
+#slide[
+  = #chapter_name
+  == Temporal Anti-Aliasing (TAA)
+  #set align(horizon + center)
+  #grid(
+    columns: (1fr),
+    grid.cell()[
+      #figure(
+        image("../../../Images/assetto_corsa_rally_frame_1.png", width: 90%),
+        caption: [Frame aus dem Trailer von _Assetto Corsa Rally_. Man beachte die *Reifen*.]
+      )
+    ], grid.cell()[
+      #figure(
+        image("../../../Images/assetto_corsa_rally_frame_2.png", width: 90%),
+        caption: [Ghosting der Reifen durch die schnelle Bewegung des Fahrzeugs.]
+      )
+    ]
+  )
 ]
 
 #slide[

@@ -16,7 +16,6 @@
     - Linien Rendering
     - Polygone
     - Übersicht über die Rendering Pipeline
-    - Z-Buffer
     - Kurze Einführung in Anti-Aliasing
     - Anwendungen der Computergrafik
   ][
