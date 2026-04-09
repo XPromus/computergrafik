@@ -79,4 +79,7 @@
   #set align(horizon)
   - Der Viewing Frustum wird in das #chapter_name transformiert
   - Nach der Transformation erfolgt Clipping und Rasterisierung
+  #figure()[
+    #image("../../../Images/canonical_view_volume_2.png", fit: "contain")
+  ]
 ]
