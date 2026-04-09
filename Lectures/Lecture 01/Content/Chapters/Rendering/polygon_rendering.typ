@@ -39,6 +39,17 @@
 ]
 
 #slide[
+  = #chapter_name
+  #set align(horizon + center)
+  #figure(
+    image("../../../Images/elite_filled_polygon.png", fit: "contain", width: 70%),
+    caption: [
+      Gefüllte Polygone einer Cobra in Elite
+    ]
+  )
+]
+
+#slide[
   = Polygon-Rendering
   == Ungefüllte Polygone
   #set align(horizon)

@@ -40,6 +40,7 @@
   - Polygone außerhalb der Ansichtsvolumen verwerfen
   - Polygone gegen Ansichtsvolumen beschneiden
     - auch leicht im Canonical View Volume durchführbar
+    - Einfach gegen eine Box zu clippen als gegen einen Sichtkegel
   
   #figure()[
     #image("../../Images/clipping.png", fit: "contain")

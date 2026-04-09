@@ -11,6 +11,7 @@
   #set align(horizon)
   - Ein, oft als Box, definierter Bereich, der alles abdeckt, was die Kamera sieht 
   - Alles, was sich in dem #chapter_name befindet wird gerendert.
+  - Geometrie aus der Kamerasicht wird auf einen festen und normalisierten Bereich überführt
   #set align(center)
   #showybox(
     frame: (
@@ -25,6 +26,8 @@
     $ Y text("from") (-1, 1) $
     $ Z text("from") (0, 1) $
   ]
+
+  $Z$ normalisiert Tiefenwerte. Einfacheres Depth-Testing
 ]
 
 #slide[
