@@ -1,0 +1,26 @@
+﻿# Hayagriva Format
+# https://github.com/typst/hayagriva/blob/main/docs/file-format.md
+
+computergrafikBand1Springer:
+  type: Book
+  title: "Computergrafik: Band I des Standardwerks Computergrafik und Bildverarbeitung"
+  author: ["Alfred Nischwitz", "Max Fischer", "Peter Haberäcker", "Gudrun Socher"]
+  publisher: Springer Vieweg
+  date: 2018
+  serial-number:
+    isbn: "978-3-658-25383-7"
+
+bildverarbeitungBand2Springer:
+  type: Book
+  title: "Bildverarbeitung: Band II des Standardwerks Computergrafik und Bildverarbeitung"
+  author: ["Alfred Nischwitz", "Max Fischer", "Peter Haberäcker", "Gudrun Socher"]
+  publisher: Springer Vieweg
+  date: 2019
+  serial-number:
+    isbn: "978-3-658-28704-7"
+
+renderingPipelineOverview:
+  type: Web
+  title: "Rendering Pipeline Overview"
+  publisher: "Khronos"
+  url: "https://wikis.khronos.org/opengl/Rendering_Pipeline_Overview"
