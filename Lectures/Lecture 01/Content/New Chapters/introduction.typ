@@ -1,7 +1,8 @@
 #import "../../Template/definitions.typ": *
-#import "../../Components/chapter_titile_slide.typ": chapter-title-slide
+#import "../../Template/template.typ": chapter-title-slide
+// #import "../../Components/chapter_titile_slide.typ": chapter-title-slide
 
-#chapter-title-slide(section-name: [Einführung], title-text: "Einführung")
+#chapter-title-slide(section-name: [Einführung])
 
 #slide[
   = Begriff der _Computergrafik_

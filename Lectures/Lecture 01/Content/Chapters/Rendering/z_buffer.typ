@@ -58,9 +58,9 @@
       #cetz.canvas({
         import cetz.draw: *
         circle((0, 0), fill: red.lighten(100%), stroke: red.lighten(100%) + 5pt, radius: (5, 5), name: "sphere")
-        rect((-1, -1), (-2, -2), stroke: 5pt, name: "pixel", fill: black.lighten(50%))
+        rect((-1, -1), (-2, -2), stroke: 5pt, name: "pixel")
         content((5, 7), text()[Pixel auf dem Bildschirm], name: "sphere_depth")
-        line("pixel", "sphere_depth", stroke: 2.5pt)
+        line((-1, -1), "sphere_depth", stroke: 2.5pt)
       })
     ]
   )
@@ -84,7 +84,7 @@
         circle((0, 0), fill: red.lighten(50%), stroke: red + 5pt, radius: (5, 5), name: "sphere")
         rect((-1, -1), (-2, -2), stroke: 5pt, name: "pixel")
         content((5, 7), text()[Tiefe der #text(fill: red, weight: "bold")[Sphere] ist $0.6$], name: "sphere_depth")
-        line("pixel", "sphere_depth", stroke: 2.5pt)
+        line((-1, -1), "sphere_depth", stroke: 2.5pt)
       })
     ]
   )
@@ -109,7 +109,7 @@
         rect((-6, -6), (0, 0), stroke: 5pt + blue, fill: blue.lighten(50%))
         rect((-1, -1), (-2, -2), stroke: 5pt, name: "pixel")
         content((5, 7), text()[Tiefe des #text(fill: blue, weight: "bold")[Cubes] ist $0.3$], name: "sphere_depth")
-        line("pixel", "sphere_depth", stroke: 2.5pt)
+        line((-1, -1), "sphere_depth", stroke: 2.5pt)
       })
     ]
   )
@@ -135,7 +135,7 @@
         rect((-6, -6), (0, 0), stroke: 5pt + blue, fill: blue.lighten(50%))
         rect((-1, -1), (-2, -2), stroke: 5pt, name: "pixel")
         content((5, 6), text()[Tiefe der #text(fill: green, weight: "bold")[Plane] ist $0.9$], name: "sphere_depth")
-        line("pixel", "sphere_depth", stroke: 2.5pt)
+        line((-1, -1), "sphere_depth", stroke: 2.5pt)
       })
     ]
   )

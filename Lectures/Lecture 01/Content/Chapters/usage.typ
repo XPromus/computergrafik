@@ -1,8 +1,9 @@
 #import "../../Template/definitions.typ": *
-#import "../../Components/chapter_titile_slide.typ": chapter-title-slide
+#import "../../Template/template.typ": chapter-title-slide
+// #import "../../Components/chapter_titile_slide.typ": chapter-title-slide
 
 #let chapter_title = [Anwendung]
-#chapter-title-slide(section-name: chapter_title, title-text: chapter_title)
+#chapter-title-slide(section-name: chapter_title)
 
 #slide[
   = #chapter_title
