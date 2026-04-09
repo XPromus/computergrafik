@@ -34,7 +34,11 @@
   #set align(horizon + center)
   #figure(
     image("../../../Images/elite_wireframe.gif", fit: "contain", width: 70%),
-    caption: [Wireframe Modell einer Cobra in dem ZX Specturm Port von Elite]
+    caption: [
+      Wireframe Modell einer Cobra in dem ZX Specturm Port von Elite. 
+      Man beachte, dass Linien auf der Rückseite der Cobra nicht angezeigt werden. 
+      Es kommt *Hidden-Line Removal* zum Einsatz.
+    ]
   )
 ]
 
@@ -44,7 +48,8 @@
   #figure(
     image("../../../Images/elite_filled_polygon.png", fit: "contain", width: 70%),
     caption: [
-      Gefüllte Polygone einer Cobra in Elite
+      Gefüllte Polygone einer Cobra in Elite. 
+      Die Polygone besitzen hier kein Shading.
     ]
   )
 ]
