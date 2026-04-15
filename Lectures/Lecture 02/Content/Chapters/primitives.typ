@@ -1,8 +1,7 @@
 #import "../../Template/definitions.typ": *
-#import "../../Template/template.typ": hszg-green
-#import "../../Components/chapter_titile_slide.typ": chapter-title-slide
+#import "../../Template/template.typ": hszg-green, chapter-title-slide, subchapter-title-slide
 
-#chapter-title-slide(section-name: [Grafikprimitive], title-text: "Grafikprimitive")
+#chapter-title-slide(section-name: [Grafikprimitive])
 
 #slide[
   = Grafikprimitive
@@ -34,6 +33,8 @@
   )
   #set text(size: 20pt)
 ]
+
+#subchapter-title-slide(section-name: [Triangle Strips])
 
 #slide[
   = Triangle Strips
@@ -82,7 +83,6 @@
   - Was wir an die Graphic-Hardware senden:
     - Startkosten: v0, v1
     - dann v2 (T0), v3 (T1), v4 (T2), v5 (T3), v6 (T4), v7 (T5), v8 (T6), v9 (T7)
-  - 10 Vertices à $100 times 10 div 24 = 41.7%$ oder $10 div 8 = 1.25$ Vertices per Triangle
 ]
 
 #slide[
@@ -91,15 +91,15 @@
   - 10 Vertices statt 24
     - $frac(100 times 10, 24)=41.7%$ der Daten
     - $frac(10, 8)=1.25$ Vertices per Triangle
-  - D.h. wir können Geometriephase mehr als 2x schneller erwarten
-  - Deﬁnition eines Dreieckstreifens bewirkt eine Änderung der Orientierung zwischen benachbarten Dreiecken im Streifen
+  - *Ergebnis:* wir können Geometriephase mehr als 2x schneller erwarten
+  - Definition eines Dreieckstreifens bewirkt eine Änderung der Orientierung zwischen benachbarten Dreiecken im Streifen
     - Intern wird die Reihenfolge gegen den Uhrzeigersinn konsistent gehalten, indem die Eckpunkte 0-1-2, 1-3-2, 2-3-4, 3-5-4, ... überquert werden.
 ]
 
 #slide[
   = Triangle Strips
+  == OpenGL Implementation
   #set align(horizon)
-  - OpenGL: glBegin(GL_TRIANGLE_STRIP); ... glEnd()
   #figure()[
     #image("../../Images/triangle_strips.png", fit: "contain", width: 75%)
   ]
@@ -109,7 +109,7 @@
     header-cell-args: (align: center),
   )
   ```GLSL
-    glBegin(GL_TRIANGLE-STRIP)
+    glBegin(GL_TRIANGLE_STRIP)
       glVertex3fv(v0);
       glVertex3fv(v1);
       glVertex3fv(v2);

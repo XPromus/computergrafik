@@ -1,8 +1,7 @@
 #import "../../Template/definitions.typ": *
-#import "../../Template/template.typ": hszg-green
-#import "../../Components/chapter_titile_slide.typ": chapter-title-slide
+#import "../../Template/template.typ": hszg-green, chapter-title-slide
 
-#chapter-title-slide(section-name: [LOD], title-text: "Level of Detail")
+#chapter-title-slide(section-name: [LOD])
 
 #slide[
   = Continuous Level of Detail (CLOD)

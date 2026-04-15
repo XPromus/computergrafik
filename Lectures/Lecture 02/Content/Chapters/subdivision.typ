@@ -1,7 +1,7 @@
 #import "../../Template/definitions.typ": *
-#import "../../Components/chapter_titile_slide.typ": chapter-title-slide
+#import "../../Template/template.typ": hszg-green, chapter-title-slide
 
-#chapter-title-slide(section-name: [Subdivision], title-text: "Subdivision")
+#chapter-title-slide(section-name: [Subdivision])
 
 #slide[
   = Subdivision

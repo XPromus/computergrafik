@@ -1,7 +1,7 @@
 #import "../../Template/definitions.typ": *
-#import "../../Components/chapter_titile_slide.typ": chapter-title-slide
+#import "../../Template/template.typ": hszg-green, chapter-title-slide
 
-#chapter-title-slide(section-name: [Mesh Representation], title-text: "Mesh Representation")
+#chapter-title-slide(section-name: [Mesh Representation])
 
 #slide[
   = Mesh Representation

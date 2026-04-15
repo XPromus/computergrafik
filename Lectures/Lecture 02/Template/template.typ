@@ -71,3 +71,30 @@
     #text(size: 18pt, weight: "regular", extra)
   ]
 ]
+
+#let chapter-title-slide(
+  section-name: content
+) = [
+  #slide[
+    #toolbox.register-section([#section-name])
+    = 
+    #set align(horizon + center)
+    #text(weight: "bold", size: 65pt)[#toolbox.current-section]
+  ]
+]
+
+#let subchapter-title-slide(
+  section-name: content
+) = [
+  #slide[
+    =
+    #set align(horizon + center)
+    #text(weight: "extralight", size: 55pt)[
+      #toolbox.current-section
+    ]
+    #line(length: 100%, stroke: gray)
+    #text(weight: "bold", size: 65pt)[
+      #section-name
+    ]
+  ]
+]

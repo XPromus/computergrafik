@@ -1,6 +1,5 @@
 #import "../../Template/definitions.typ": *
-#import "../../Template/template.typ": hszg-green
-#import "../../Components/chapter_titile_slide.typ": chapter-title-slide
+#import "../../Template/template.typ": hszg-green, chapter-title-slide
 
 #let cCircle(pos, custom_scale: int, name: str, cfill: color) = {
   import cetz.draw: *
@@ -77,7 +76,7 @@
   })
 ]
 
-#chapter-title-slide(section-name: [Optimierung], title-text: "Polygon Mesh Optimierung")
+#chapter-title-slide(section-name: [Optimierung])
 
 #slide[
   = Polygon Mesh Optimierung
