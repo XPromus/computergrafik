@@ -39,8 +39,9 @@
 #slide[
   = Triangle Strips
   #set align(horizon)
-  - Ohne strips: 8 triangles \* 3 vertices = 24 vertices
-  - Mit strips: 1 vertex per triangle anstelle von 3
+  - Ohne Strips: $8 "triangles" times 3 "vertices" eq 24 "vertices"$
+  - Mit Strips: $1$ vertex per triangle anstelle von $3$
+  
   #figure()[
     #cetz.canvas({
         import cetz.draw: *
@@ -80,15 +81,21 @@
         }
     })
   ]
-  - Was wir an die Graphic-Hardware senden:
-    - Startkosten: v0, v1
-    - dann v2 (T0), v3 (T1), v4 (T2), v5 (T3), v6 (T4), v7 (T5), v8 (T6), v9 (T7)
+  
+  Was wir an die Graphic-Hardware senden: \
+  Startkosten: $V_(0)$, $V_(1)$ \
+  Dann: 
+  #let i = 0
+  #while i <= 7 {
+    [$T_(#i) eq {V_(#{i + 2})}$, ]
+    i += 1
+  }
 ]
 
 #slide[
   = Triangle Strips
   #set align(horizon)
-  - 10 Vertices statt 24
+  - $10$ Vertices statt $24$
     - $frac(100 times 10, 24)=41.7%$ der Daten
     - $frac(10, 8)=1.25$ Vertices per Triangle
   - *Ergebnis:* wir können Geometriephase mehr als 2x schneller erwarten
@@ -147,50 +154,13 @@
   = Triangle Strips
   == Swaps/Touch
   #set align(horizon)
-  - Durchführen eines Swaps / Tausch für T3
-  - Startkosten: v0, v1 dann
-    - v2 (T0)
-    - v3 (T1)
-    - v2
-    - v4 (T2)
-    - v5 (T3)
-    - v6 (T4)
-  - Degeneriertes Dreieck (0-Fläche): v2, v3, v2
-
-  // #cetz.canvas({
-  //   import cetz.draw: *
-    
-  //   let scaling = 1
-
-  //   let scalePosition(pos: (x: int, y: int)) = {
-  //     return (
-  //       pos.at("x") * scaling,
-  //       pos.at("y") * scaling
-  //     )
-  //   }
-
-  //   let triangle(
-  //     pos1: (x: int, y: int), 
-  //     pos2: (x: int, y: int), 
-  //     pos3: (x: int, y: int)
-  //   ) = {
-  //     import cetz.draw: *
-  //     line(
-  //       scalePosition(pos: pos1), 
-  //       scalePosition(pos: pos2), 
-  //       scalePosition(pos: pos3)
-  //     )
-  //   }
-
-  //   let v0 = (x: 0, y: 0)
-  //   let v1 = (x: 0.5, y: -1)
-  //   let v2 = (x: 1, y: 0)
-  //   let v3 = (x: 1.5, y: -1)
-  //   let v4 = (x: 2, y: 0)
-  //   let v5 = (x: 1.5, y: 1)
-  //   let v6 = (x: 2.5, y: 1)
-
-  //   triangle()
-  // })
-
+  - Durchführen eines Swaps / Tausch für $T_(3)$
+  - Startkosten: $V_(0)$, $V_(1)$ dann
+    - $V_(2)$ $(T_(0))$
+    - $V_(3)$ $(T_(1))$
+    - $V_(2)$
+    - $V_(4)$ $(T_(2))$
+    - $V_(5)$ $(T_(3))$
+    - $V_(6)$ $(T_(4))$
+  - Degeneriertes Dreieck (0-Fläche): $V_(2)$, $V_(3)$, $V_(2)$
 ]

@@ -1,5 +1,5 @@
 #import "../../Template/definitions.typ": *
-#import "../../Template/template.typ": hszg-green, chapter-title-slide
+#import "../../Template/template.typ": hszg-green, chapter-title-slide, subchapter-title-slide
 
 #chapter-title-slide(section-name: [Subdivision])
 
@@ -109,14 +109,143 @@
   ]
 ]
 
+#subchapter-title-slide(section-name: [Catmull-Clark])
+
 #slide[
-  = Subdivision
-  == Catmull-Clark
-  #set align(horizon + center)
-  #figure()[
-    #image("../../Images/subdivision_catmull.png", fit: "contain", width: 85%)
-  ]
+  = Catmull-Clark
+  == Übersicht
+  #set align(horizon)
+
+  #grid(
+    columns: (1fr, 1fr),
+    [
+      - Rekursiver Ansatz zur Verfeinerung von Meshes
+      - Die fertige Mesh wird nur aus Vierecken bestehen und weicher aussehen als ursprünglich
+      - Je mehr Durchgänge, desto abgerundeter wird die Mesh
+    ], [
+      #show figure.caption: it => [
+        #text(size: 13pt, weight: "bold")[#it.supplement #context it.counter.display(it.numbering):] #it.body
+      ]
+
+      #figure(
+        image("../../Images/catmull/overview.png", width: 60%),
+        caption: text(size: 13pt)[
+          3-stufige Subdivision an einem Würfel. 
+          Mit jedem Schritt nähert sich der Würfel der Form einer Kugel an. 
+        ]
+      )
+    ]
+  )
 ]
+
+#slide[
+  = Catmull-Clark
+  == Abfolge
+  #set align(horizon)
+
+  Für jedes Face wird ein _Face Point_ hinzugefügt. \
+  Jeder _Face Point_ ist der Durchschnitt aller Punkte des jeweiligen Faces
+
+  #figure(
+    image("../../Images/catmull/step_1.png", width: 80%),
+    caption: [
+      Blaue Spheres als Face Points
+    ]
+  )
+]
+
+#slide[
+  = Catmull-Clark
+  == Abfolge
+  #set align(horizon)
+
+  Für jede Edge wird ein _Edge Point_ hinzugefügt. \
+  Jeder _Edge Point_ ist der Durchschnitt der zwei benachbarten _Face Points_ $(A, F)$ und die beiden Endpunkte der Kante $(M, E)$.
+
+  $ frac(A plus F plus M plus E, 4) $
+
+  #figure(
+    image("../../Images/catmull/step_2.png", width: 50%),
+    caption: [
+      Mangenta Würfel als _Edge Points_
+    ]
+  )
+]
+
+#slide[
+  = Catmull-Clark
+  == Abfolge - _Vertex Points_
+  #set align(horizon)
+  #v(1fr)
+  Erstelle neue _Vertex Points_. 
+  Für jeden ursprünglichen Punkt $P$, nehme den Durchschnitt $F$ aller $n$ erstellen _Face Points_, deren Faces $P$ berühren und nehme den Durchschnitt $R$ aller $n$ Kanten-Mittelpunkte der ursprünglichen Kanten, die $P$ berühren. 
+  Jeder ursprüngliche Punkt wird zum neuen _Vertex Point_ $V$ verschoben.
+  #v(1fr)
+  $ V eq frac(F plus 2 R plus (n minus 3) P, n) $
+  #v(1fr)
+]
+
+#slide[
+  = Catmull-Clark
+  == Abfolge - _Vertex Points_
+  #set align(horizon)
+  
+  #figure(
+    image("../../Images/catmull/step_3.png", width: 80%),
+    caption: [
+      Grüne Kegel als neue _Vertex Points_
+    ]
+  )
+]
+
+#slide[
+  = Catmull-Clark
+  == Abfolge - Erstellen von neuen _Edges_ und _Faces_
+  #set align(horizon)
+
+  1. Verbinde jeden neuen _Face Point_ mit den neuen _Edge Points_ aller ursprünglichen Edges, die das ursprüngliche Face definieren
+
+  #figure(
+    image("../../Images/catmull/step_4.png", width: 70%),
+    caption: [
+      Neue Edges, 4 pro _Face Point_
+    ]
+  )
+]
+
+#slide[
+  = Catmull-Clark
+  == Abfolge - Erstellen von neuen _Edges_ und _Faces_
+  #set align(horizon)
+
+  2. Verbinde jeden neuen _Vertex Point_ mit den neuen _Edge Points_ aller ursprünglichen Kanten, die am ursprünglichen Knoten inzident sind
+
+  *Inzident*: Eine Kante $e$ ist inzident zu einem Knoten $v$, wenn $v$ einer der Endpunkte von $e$ ist.
+
+  #figure(
+    image("../../Images/catmull/step_5.png", width: 60%),
+    caption: [
+      3 neue Edges pro Vertex
+    ]
+  )
+]
+
+#slide[
+  = Catmull-Clark
+  == Abfolge - Faces erstellen
+  #set align(horizon)
+
+  3. Definiere neue Faces, die von Edges umschlossen sind.
+
+  #figure(
+    image("../../Images/catmull/step_6.png", width: 80%),
+    caption: [
+      Finale Faces der Mesh
+    ]
+  )
+]
+
+#subchapter-title-slide(section-name: [Zusammenfassung])
 
 #slide[
   = Subdivision
@@ -144,7 +273,7 @@
   - Modifier werden am besten als Finishing Tool genutzt
 
   #guideline[HSDS][
-    The HSDS modiﬁer implements Hierarchical SubDivision Surfaces. 
+    The HSDS mofifier implements Hierarchical subdivision Surfaces. 
     It is intended primarily as a ﬁnishing tool rather than as a modeling tool. 
     For best results, perform most of your modeling using low-polygon methods, and then use HSDS to add detail and adaptively reﬁne the model. \
 

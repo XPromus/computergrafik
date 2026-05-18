@@ -57,8 +57,8 @@
 #slide[
   = Konvexe Polygone
   #set align(horizon)
-  - Konvexes Polygon - Bei zwei beliebigen Punkten P1, P2 innerhalb des Polygons befinden sich alle Punkte, die auf dem Liniensegment zwischen P1 und P2 liegen, innerhalb des Polygons.
-  - Alle Punkte $ P = u times "P1" plus (1 minus u) times "P2", u in [0,1] $ liegen innerhalb des Polygons, vorausgesetzt, dass P1 und P2 innerhalb des Polygons liegen
+  - Konvexes Polygon - Bei zwei beliebigen Punkten $P_(1)$, $P_(2)$ innerhalb des Polygons befinden sich alle Punkte, die auf dem Liniensegment zwischen $P_(1)$ und $P_(2)$ liegen, innerhalb des Polygons.
+  - Alle Punkte $ P = u times P_(1) plus (1 minus u) times P_(2), u in [0,1] $ liegen innerhalb des Polygons, vorausgesetzt, dass $P_(1)$ und $P_(2)$ innerhalb des Polygons liegen
 ]
 
 #slide[

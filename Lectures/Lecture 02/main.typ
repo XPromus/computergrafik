@@ -15,4 +15,17 @@
 
 #show: setup
 
+#slide[
+  = Agenda
+  #set align(horizon)
+
+  - Polygon Meshes
+  - Mesh Representation
+  - Subdivision
+  - Parametrische Oberflächen
+  - Optimierung
+  - Level of Detail
+  - Grafikprimitive
+]
+
 #include "Content/content.typ"
