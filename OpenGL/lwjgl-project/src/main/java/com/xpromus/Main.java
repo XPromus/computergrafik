@@ -3,7 +3,6 @@ package com.xpromus;
 import com.xpromus.engine.*;
 import com.xpromus.engine.graph.*;
 import com.xpromus.engine.scene.Scene;
-import com.xpromus.tasks.delaunytriangulation.solution.FinishedTriangulator;
 
 public class Main implements IAppLogic {
 
