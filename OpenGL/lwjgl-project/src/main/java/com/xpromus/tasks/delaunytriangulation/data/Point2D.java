@@ -1,11 +1,11 @@
 package com.xpromus.tasks.delaunytriangulation.data;
 
-public class Point {
+public class Point2D {
 
     private final double x;
     private final double y;
 
-    public Point(double x, double y) {
+    public Point2D(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -18,13 +18,9 @@ public class Point {
         return y;
     }
 
-    public double[] toGL3() {
-        return new double[] { x, y, 0 };
-    }
-
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Point other)) {
+        if (!(obj instanceof Point2D other)) {
             return false;
         }
 

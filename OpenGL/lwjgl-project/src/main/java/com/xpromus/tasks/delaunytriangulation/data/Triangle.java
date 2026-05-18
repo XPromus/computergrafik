@@ -2,14 +2,14 @@ package com.xpromus.tasks.delaunytriangulation.data;
 
 public class Triangle {
 
-    private final Point a;
-    private final Point b;
-    private final Point c;
+    private final Point2D a;
+    private final Point2D b;
+    private final Point2D c;
     private final Edge[] edges;
 
     private final Circumcircle circumcircle;
 
-    public Triangle(Point a, Point b, Point c) {
+    public Triangle(Point2D a, Point2D b, Point2D c) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -23,7 +23,7 @@ public class Triangle {
         this.circumcircle = new Circumcircle(a, b, c);
     }
 
-    public Triangle(Edge e, Point p) {
+    public Triangle(Edge e, Point2D p) {
         this.a = e.getA();
         this.b = e.getB();
         this.c = p;
@@ -37,15 +37,15 @@ public class Triangle {
         this.circumcircle = new Circumcircle(a, b, c);
     }
 
-    public Point getA() {
+    public Point2D getA() {
         return a;
     }
 
-    public Point getB() {
+    public Point2D getB() {
         return b;
     }
 
-    public Point getC() {
+    public Point2D getC() {
         return c;
     }
 
@@ -57,7 +57,7 @@ public class Triangle {
         return circumcircle;
     }
 
-    public boolean ContainsVertex(Point p) {
+    public boolean ContainsVertex(Point2D p) {
         return a.equals(p) || b.equals(p) || c.equals(p);
     }
 

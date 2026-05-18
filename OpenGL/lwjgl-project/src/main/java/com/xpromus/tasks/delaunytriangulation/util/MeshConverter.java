@@ -1,6 +1,6 @@
 package com.xpromus.tasks.delaunytriangulation.util;
 
-import com.xpromus.tasks.delaunytriangulation.data.Point;
+import com.xpromus.tasks.delaunytriangulation.data.Point2D;
 import com.xpromus.tasks.delaunytriangulation.data.Triangle;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public class MeshConverter {
     ) {
         var newMesh = new Mesh();
 
-        var vertices = new ArrayList<Point>();
+        var vertices = new ArrayList<Point2D>();
         var triangleIndices = new int[triangles.size() * 3];
 
         for (var i = 0; i < triangles.size(); i++) {
@@ -29,14 +29,14 @@ public class MeshConverter {
             triangleIndices[startIndex + 2] = vertices.indexOf(currentTriangle.getC());
         }
 
-        Point[] pointArray = new Point[vertices.size()];
+        Point2D[] point2DArray = new Point2D[vertices.size()];
         for (int i = 0; i < vertices.size(); i++) {
-            pointArray[i] = vertices.get(i);
+            point2DArray[i] = vertices.get(i);
         }
 
         System.out.println(triangles.size());
 
-        newMesh.setCoordinates(pointArray);
+        newMesh.setCoordinates(point2DArray);
         newMesh.setTriangleIndices(triangleIndices);
 
         return newMesh;

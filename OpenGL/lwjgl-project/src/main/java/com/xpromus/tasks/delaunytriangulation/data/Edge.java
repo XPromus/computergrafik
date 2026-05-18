@@ -2,11 +2,11 @@ package com.xpromus.tasks.delaunytriangulation.data;
 
 public class Edge {
 
-    private Point a;
-    private Point b;
+    private Point2D a;
+    private Point2D b;
     private double length;
 
-    public Edge(Point a, Point b) {
+    public Edge(Point2D a, Point2D b) {
         this.a = a;
         this.b = b;
         length = Math.sqrt(
@@ -14,11 +14,11 @@ public class Edge {
         );
     }
 
-    public Point getA() {
+    public Point2D getA() {
         return a;
     }
 
-    public Point getB() {
+    public Point2D getB() {
         return b;
     }
 

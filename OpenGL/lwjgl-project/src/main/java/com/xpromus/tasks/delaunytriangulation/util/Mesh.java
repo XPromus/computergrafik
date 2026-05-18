@@ -1,6 +1,6 @@
 package com.xpromus.tasks.delaunytriangulation.util;
 
-import com.xpromus.tasks.delaunytriangulation.data.Point;
+import com.xpromus.tasks.delaunytriangulation.data.Point2D;
 
 import java.util.Arrays;
 
@@ -18,16 +18,16 @@ public class Mesh {
         return coordinates;
     }
 
-    public void setCoordinates(Point[] points) {
-        coordinates = new float[points.length * 3];
+    public void setCoordinates(Point2D[] point2DS) {
+        coordinates = new float[point2DS.length * 3];
 
-        colors = new float[points.length * 3];
+        colors = new float[point2DS.length * 3];
         Arrays.fill(colors, 1f);
 
-        for (int i = 0; i < points.length; i++) {
+        for (int i = 0; i < point2DS.length; i++) {
             var startIndex = i * 3;
-            coordinates[startIndex] = (float) points[i].getX();
-            coordinates[startIndex + 1] = (float) points[i].getY();
+            coordinates[startIndex] = (float) point2DS[i].getX();
+            coordinates[startIndex + 1] = (float) point2DS[i].getY();
             coordinates[startIndex + 2] = 0f;
         }
     }

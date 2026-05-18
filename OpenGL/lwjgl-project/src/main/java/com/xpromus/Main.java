@@ -3,12 +3,7 @@ package com.xpromus;
 import com.xpromus.engine.*;
 import com.xpromus.engine.graph.*;
 import com.xpromus.engine.scene.Scene;
-import com.xpromus.tasks.delaunytriangulation.Triangulator;
-import com.xpromus.tasks.delaunytriangulation.data.Point;
 import com.xpromus.tasks.delaunytriangulation.solution.FinishedTriangulator;
-import com.xpromus.tasks.delaunytriangulation.util.MeshConverter;
-
-import java.util.List;
 
 public class Main implements IAppLogic {
 
