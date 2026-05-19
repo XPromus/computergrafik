@@ -1,3 +1,5 @@
+#include "Chapters/rendering_pipeline.typ"
+
 #include "Chapters/polygon_meshes.typ"
 
 #include "Chapters/mesh_representation.typ"
