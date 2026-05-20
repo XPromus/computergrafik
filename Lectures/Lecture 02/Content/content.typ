@@ -6,7 +6,7 @@
 
 #include "Chapters/subdivision.typ"
 
-#include "Chapters/param_surfaces.typ"
+//#include "Chapters/param_surfaces.typ"
 
 #include "Chapters/optimizing.typ"
 

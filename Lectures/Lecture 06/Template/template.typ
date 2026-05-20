@@ -83,6 +83,18 @@
   ]
 ]
 
+#let alternate-chapter-title-slide(
+  section-name: content,
+  alternate-name: content,
+) = [
+  #slide[
+    #toolbox.register-section([#section-name])
+    = 
+    #set align(horizon + center)
+    #text(weight: "bold", size: 65pt)[#alternate-name]
+  ]
+]
+
 #let subchapter-title-slide(
   section-name: content
 ) = [

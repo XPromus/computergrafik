@@ -24,3 +24,15 @@
 
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 #import fletcher.shapes: *
+
+#import "@preview/gentle-clues:1.3.0": *
+#let definition(
+  title: "Definition",
+  icon: emoji.finger,
+  ..args
+) = clue(
+  accent-color: blue,
+  title: title,
+  icon: icon,
+  ..args
+)

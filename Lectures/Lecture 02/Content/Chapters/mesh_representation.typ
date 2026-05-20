@@ -7,24 +7,26 @@
   = Mesh Representation
   #set align(horizon)
   - Meshes können unterschiedlich abgespeichert und repräsentiert werden
-  - Mesh Representations:
+  
+  Mesh Representations:
     - Independent Faces
     - Vertex and Face Table
     - Adjacency Lists
-    - (Winged Edge)
+    - Winged Edge
 ]
 
 #slide[
   = Mesh Representation
   #set align(horizon)
-  - Independent Faces:
-    - Jede Fläche listet Vertex-Koordinaten auf
-      - Redundante Eckpunkte
-      - Keine Topologie-Informationen
-  - Vertex und Face-Table
-    - Jede Fläche listet Vertex-Referenzen auf
-      - Gemeinsam genutzte Eckpunkte, kompaktere Darstellung
-      - Immer noch keine Topologie-Informationen
+  *Independent Faces*
+  - Jede Fläche listet Vertex-Koordinaten auf
+    - Redundante Eckpunkte
+    - Keine Topologie-Informationen
+
+  *Vertex und Face-Table*
+  - Jede Fläche listet Vertex-Referenzen auf
+    - Gemeinsam genutzte Eckpunkte, kompaktere Darstellung
+    - Immer noch keine Topologie-Informationen
 ]
 
 #slide[
@@ -66,6 +68,7 @@
   #grid(
     columns: (1fr, 1fr),
     inset: 5pt,
+    align: top + center,
     [
       #table(
         columns: (1fr, 1fr),
@@ -103,10 +106,13 @@
 #slide[
   = Mesh Representation
   #set align(horizon)
-  *Adjacency Lists:* Alle Vertex-, Kanten- und Flächenadjazenzen speichern
+  *Adjacency Lists* 
+  - Alle Vertex-, Kanten- und Flächenadjazenzen speichern
   - Eﬃzientes Traversieren der Topologie
-  - Zusätzlicher Speicher
-  *Winged Edge*: Erweiterte Mesh-Darstellung
+  - Zusätzlicher Speicher benötigt
+
+  *Winged Edge*
+  - Erweiterte Mesh-Darstellung
   - Speichert nur einige Adjazenzbeziehungen; kann auf Anfrage andere ableiten
   - Wenig zusätzlicher Speicherplatz (feste Datensätze)
 ]

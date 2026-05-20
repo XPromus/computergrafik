@@ -21,6 +21,16 @@
   #table(
     columns: (auto, auto),
     inset: 10pt,
+    stroke: hszg-green + 3pt,
+    fill: (x, y) => {
+      if (y == 0) {
+        return hszg-green
+      } else if (calc.even(y)) {
+        return hszg-green.lighten(90%)
+      } else {
+        return white
+      }
+    },
     table.header(
       [*Grafik-Primitive in Vulkan*], [*Grafik-Primitive in OpenGL*]
     ),
@@ -150,17 +160,85 @@
   ```
 ]
 
+// #slide[
+//   = Triangle Strips
+//   == Swaps/Tausch
+//   #set align(horizon)
+//   - Durchführen eines Swaps / Tausch für $T_(3)$
+//   - Startkosten: $V_(0)$, $V_(1)$ dann
+//     - $V_(2)$ $(T_(0))$
+//     - $V_(3)$ $(T_(1))$
+//     - $V_(2)$
+//     - $V_(4)$ $(T_(2))$
+//     - $V_(5)$ $(T_(3))$
+//     - $V_(6)$ $(T_(4))$
+//   - Degeneriertes Dreieck (0-Fläche): $V_(2)$, $V_(3)$, $V_(2)$
+// ]
+
 #slide[
   = Triangle Strips
-  == Swaps/Touch
+  == Erstellung
   #set align(horizon)
-  - Durchführen eines Swaps / Tausch für $T_(3)$
-  - Startkosten: $V_(0)$, $V_(1)$ dann
-    - $V_(2)$ $(T_(0))$
-    - $V_(3)$ $(T_(1))$
-    - $V_(2)$
-    - $V_(4)$ $(T_(2))$
-    - $V_(5)$ $(T_(3))$
-    - $V_(6)$ $(T_(4))$
-  - Degeneriertes Dreieck (0-Fläche): $V_(2)$, $V_(3)$, $V_(2)$
+
+  - Manuelle Erstellung - nur bei kleinen Modellen und macht keinen Spaß...
+  - OpenSceneGraph
+  - NVIDIA Tri Stip-Library
+  - Custom Implementationen
+]
+
+#slide[
+  = Triangle Strips
+  == Erstellung
+  #set align(horizon)
+
+  SGI Stripping Algorithm
+  1. Wähle ein Start-Dreieck
+  2. Baue 3 Triangle-Stips (einer pro Edge)
+  3. Wähle den längsten Strip
+  4. Beginne bei 1. bis alle Dreiecke in einem Strip sind
+
+  Wahl des Start-Dreiecks
+  - Originale Implementation: Dreieck mit den wenigsten Nachbarn
+  - Praktisch bringt eine willkürliche Wahl gleich gute Ergebnisse
+]
+
+#slide[
+  = Triangle Strips
+  == Performance
+  #set align(horizon)
+  
+  #figure(
+    image("../../Images/siliconcarbidschaum_tu.png", width: 60%),
+    caption: [
+      Modell von Siliconcarbidschaum der TU Freiberg
+    ]
+  )
+]
+
+#slide[
+  = Triangle Strips
+  == Performance
+  #set align(horizon)
+
+  #table(
+    columns: (1fr, 1fr, 1fr),
+    stroke: hszg-green + 3pt,
+    inset: 15pt,
+    fill: (x, y) => {
+      if (y == 0) {
+        return hszg-green
+      } else if (calc.even(y)) {
+        return hszg-green.lighten(90%)
+      } else {
+        return white
+      }
+    },
+    table.header(
+      [], [*Originales Modell*], [*Optimiertes Modell*]
+    ),
+    [Anzahl der Vertices], [ca. 1,36 Millionen], [ca. 0,23 Millionen],
+    [Anzahl der Primitve], [ca. 1,36 Millionen Polygone], [ca. 0,44 Millionen Tristrips und ca. 8000 Triangles],
+    [Renderdauer], [ca. 50 ms], [ca. 7 ms],
+    [FPS], [ca. 19 FPS], [60 FPS (maximales Limit)]
+  )
 ]

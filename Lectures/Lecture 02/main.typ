@@ -19,10 +19,10 @@
   = Agenda
   #set align(horizon)
 
+  - Wiederholung Grafikpipeline
   - Polygon Meshes
   - Mesh Representation
   - Subdivision
-  - Parametrische Oberflächen
   - Optimierung
   - Level of Detail
   - Grafikprimitive
