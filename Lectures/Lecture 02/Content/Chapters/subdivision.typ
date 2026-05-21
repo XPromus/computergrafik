@@ -143,13 +143,13 @@
   == Abfolge
   #set align(horizon)
 
-  Für jedes Face wird ein _Face Point_ hinzugefügt. \
-  Jeder _Face Point_ ist der Durchschnitt aller Punkte des jeweiligen Faces
+  Für jedes Face wird ein #text(fill: blue)[_Face Point_] hinzugefügt. \
+  Jeder #text(fill: blue)[_Face Point_] ist der Durchschnitt aller Punkte des jeweiligen Faces
 
   #figure(
     image("../../Images/catmull/step_1.png", width: 80%),
     caption: [
-      Blaue Spheres als Face Points
+      Blaue Spheres als #text(fill: blue)[_Face Points_]
     ]
   )
 ]
@@ -159,15 +159,15 @@
   == Abfolge
   #set align(horizon)
 
-  Für jede Edge wird ein _Edge Point_ hinzugefügt. \
-  Jeder _Edge Point_ ist der Durchschnitt der zwei benachbarten _Face Points_ $(A, F)$ und die beiden Endpunkte der Kante $(M, E)$.
+  Für jede Edge wird ein #text(fill: fuchsia)[_Edge Point_] hinzugefügt. \
+  Jeder #text(fill: fuchsia)[_Edge Point_]  ist der Durchschnitt der zwei benachbarten #text(fill: blue)[_Face Points_] $(A, F)$ und die beiden Endpunkte der Kante $(M, E)$.
 
   $ frac(A plus F plus M plus E, 4) $
 
   #figure(
     image("../../Images/catmull/step_2.png", width: 50%),
     caption: [
-      Mangenta Würfel als _Edge Points_
+      Mangenta Würfel als #text(fill: fuchsia)[_Edge Points_] 
     ]
   )
 ]
@@ -177,9 +177,9 @@
   == Abfolge - _Vertex Points_
   #set align(horizon)
   #v(1fr)
-  Erstelle neue _Vertex Points_. 
-  Für jeden ursprünglichen Punkt $P$, nehme den Durchschnitt $F$ aller $n$ erstellen _Face Points_, deren Faces $P$ berühren und nehme den Durchschnitt $R$ aller $n$ Kanten-Mittelpunkte der ursprünglichen Kanten, die $P$ berühren. 
-  Jeder ursprüngliche Punkt wird zum neuen _Vertex Point_ $V$ verschoben.
+  Erstelle neue #text(fill: hszg-green)[_Vertex Points_]. 
+  Für jeden ursprünglichen Punkt $P$, nehme den Durchschnitt $F$ aller $n$ erstellen #text(fill: blue)[_Face Point_], deren Faces $P$ berühren und nehme den Durchschnitt $R$ aller $n$ Kanten-Mittelpunkte der ursprünglichen Kanten, die $P$ berühren. 
+  Jeder ursprüngliche Punkt wird zum neuen #text(fill: hszg-green)[_Vertex Points_] $V$ verschoben.
   #v(1fr)
   $ V eq frac(F plus 2 R plus (n minus 3) P, n) $
   #v(1fr)
@@ -193,7 +193,7 @@
   #figure(
     image("../../Images/catmull/step_3.png", width: 80%),
     caption: [
-      Grüne Kegel als neue _Vertex Points_
+      Grüne Kegel als neue #text(fill: hszg-green)[_Vertex Points_]
     ]
   )
 ]
@@ -203,12 +203,12 @@
   == Abfolge - Erstellen von neuen _Edges_ und _Faces_
   #set align(horizon)
 
-  1. Verbinde jeden neuen _Face Point_ mit den neuen _Edge Points_ aller ursprünglichen Edges, die das ursprüngliche Face definieren
+  1. Verbinde jeden neuen #text(fill: blue)[_Face Point_] mit den neuen #text(fill: fuchsia)[_Edge Points_] aller ursprünglichen Edges, die das ursprüngliche Face definieren
 
   #figure(
     image("../../Images/catmull/step_4.png", width: 70%),
     caption: [
-      Neue Edges, 4 pro _Face Point_
+      Neue Edges, 4 pro #text(fill: blue)[_Face Point_]
     ]
   )
 ]
@@ -218,7 +218,7 @@
   == Abfolge - Erstellen von neuen _Edges_ und _Faces_
   #set align(horizon)
 
-  2. Verbinde jeden neuen _Vertex Point_ mit den neuen _Edge Points_ aller ursprünglichen Kanten, die am ursprünglichen Knoten inzident sind
+  2. Verbinde jeden neuen #text(fill: hszg-green)[_Vertex Point_] mit den neuen #text(fill: fuchsia)[_Edge Points_]  aller ursprünglichen Kanten, die am ursprünglichen Knoten inzident sind
 
   *Inzident*: Eine Kante $e$ ist inzident zu einem Knoten $v$, wenn $v$ einer der Endpunkte von $e$ ist.
 
