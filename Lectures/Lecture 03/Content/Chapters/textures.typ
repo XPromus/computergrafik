@@ -131,17 +131,46 @@
 ]
 
 #slide[
-  = Environment Mapping
+  = Normal Mapping
   #set align(horizon)
 
-  - Simulation von spiegelnden Oberflächen durch Textur
-  - Vorteil: schnell zu berechnen im Vergleich zu Raytracing
-  - Nachteil: Variation der Umwelt nicht bzw. schwer in Spiegelung übertragbar
-
-  #figure(
-    image("../../Images/environment_mapping_example.png", fit: "cover", width: 60%)
+  #grid(
+    columns: (1fr, 1fr),
+    align: center + horizon,
+    inset: 15pt,
+    [
+      #image("../../Images/normal_maps/normal_maps_low_poly.png", width: 60%)
+      Low-Poly Modell
+    ], [
+      #image("../../Images/normal_maps/normal_maps_high_poly.png", width: 60%)
+      High-Poly Modell
+    ],
+    [], [
+      #image("../../Images/normal_maps/normal_maps_low_poly_with.png", width: 60%)
+      Low-Poly Modell mit Normal Map
+    ]
   )
 ]
+
+#slide[
+  = Normal Mapping
+  #set align(horizon)
+  #v(1fr)
+  #text(weight: "bold", size: 23pt)[Vorteile]
+  #line(length: 100%, stroke: 2.5pt)
+    - *Detaillierte Oberflächen*: Besseres Aussehen und Oberfläche
+    - *Effizient*: Benötigen weniger Berechnungen als mehr Polygone
+    - *Wiederverwendbarkeit*: Normal Maps können beliebig oft wiederverwendet werden
+    - *Speichereffizient*: Texturen kleiner als Geometrie
+  #v(1fr)
+  #text(weight: "bold", size: 23pt)[Nachteile]
+  #line(length: 100%, stroke: 2.5pt)
+  - *Limitierter Einsatz*: Sie modifizieren nicht die Geometrie. Nutzung ist nur auf kleine Details limitiert
+  - *Erstellung*: Benötigt gute Fähigkeiten und spezielle Software, manchmal ist manuelle Erstellung nötig
+  #v(1fr)
+]
+
+#include "reflection_mapping.typ"
 
 #slide[
   = Light Mapping

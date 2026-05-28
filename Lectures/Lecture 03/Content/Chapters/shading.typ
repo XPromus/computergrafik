@@ -36,69 +36,120 @@
 
 #subchapter-title-slide(section-name: [Shading Modelle])
 
+// #slide[
+//   = Flat Shading
+//   #set align(horizon)
+
+//   - Abtasten der Beleuchtung an einem Punkt pro Polygon
+//   - Verwenden konstanter Interpolation
+//   - Alle anderen Punkte des Polygons erhalten die Intensität dieses Punktes
+  
+//   Dieser Ansatz wäre gültig, wenn:
+//   - die wahre Oberfläche wirklich facettiert ist, also $N$ konstant ist, und
+//   - die Lichtquelle im Unendlichen ist, so dass $L$ konstant ist, und
+//   - der Betrachter sich im Unendlichen befindet, so dass $V$ konstant ist.
+// ]
+
 #slide[
   = Flat Shading
   #set align(horizon)
 
-  - Abtasten der Beleuchtung an einem Punkt pro Polygon
-  - Verwenden konstanter Interpolation
-  - Alle anderen Punkte des Polygons erhalten die Intensität dieses Punktes
-  
-  Dieser Ansatz wäre gültig, wenn:
-  - die wahre Oberfläche wirklich facettiert ist, also $N$ konstant ist, und
-  - die Lichtquelle im Unendlichen ist, so dass $L$ konstant ist, und
-  - der Betrachter sich im Unendlichen befindet, so dass $V$ konstant ist.
+  - Berechnung der Farbe für jedes Face, basierend auf einer einzelnen Lichtberechnung
+  - Farbe wird auf das komplette Face angewendet
+  - Farbe wird bestimmt durch den Winkel zwischen der Face-Normalen und der Lichtquelle
+
+  #figure(
+    image("../../Images/flat_shading_torus.png", width: 50%)
+  )
 ]
+
+#slide[
+  = Flat Shading
+  === Eigenschaften
+  #set align(horizon)
+
+  - *Berechnung*: Eine Lichtberechnung pro Polygon
+  - *Aussehen*: Erstellt einen facettenreiches Aussehen, bei dem jedes Face eine einheitliche Farbe hat
+  - *Performance*: Schnellste der drei Techniken
+  - *Use-Case*: Einfache, low-poly Modelle, bei denen das facettierte Aussehen gewünscht ist
+]
+
+// #slide[
+//   = Gouraud Shading
+//   #set align(horizon)
+
+//   - Anwendung des Beleuchtungsmodells an jeder Vertex \ (Beispiel: $I_(1)$, $I_(2)$, $I_(3)$)
+//   - Intensitäten als Teil der Scan-Konvertierung interpoliert
+//     - Interpolieren der Spannenendpunkte aus Kantenscheitelpunkten (Beispiel: $I_(a)$, $I_(b)$)
+//     - Interpolieren von Punkten innerhalb einer Spannweite aus Spannweitenendpunkten (Beispiel: $I_(p)$)
+  
+//   #figure(
+//     cetz.canvas(length: 5cm, {
+//       import cetz.draw: *
+
+//       line(
+//         (0, 0), 
+//         (1, 1), 
+//         (2, 0), 
+//         close: true, 
+//         stroke: (
+//           paint: hszg-green, 
+//           thickness: 2.5pt,
+//           join: "round"
+//         ), 
+//         fill: hszg-green.lighten(90%)
+//       )
+//       line(
+//         (0, 0.5), 
+//         (2, 0.5), 
+//         stroke: (
+//           thickness: 2.5pt, 
+//           dash: "loosely-dashed",
+//           cap: "round"
+//         )
+//       )
+
+//       circle((1, 0.5), radius: 5pt, name: "Ip", fill: black)
+//       content("Ip.south", [$I_(p)$], padding: (top: 35pt))
+
+//       circle((0.5, 0.5), radius: 5pt, name: "Ia", fill: black)
+//       content("Ia.north", [$I_(a)$], padding: (bottom: 25pt, right: 25pt))
+
+//       circle((1.5, 0.5), radius: 5pt, name: "Ib", fill: black)
+//       content("Ib.north", [$I_(b)$], padding: (bottom: 25pt, left: 25pt))
+
+//       content((0, 0), [$I_(2)$], padding: (right: 25pt))
+//       content((2, 0), [$I_(3)$], padding: (left: 25pt))
+//       content((1, 1), [$I_(1)$], padding: (bottom: 25pt))
+//     })
+//   )
+// ]
 
 #slide[
   = Gouraud Shading
   #set align(horizon)
 
-  - Anwendung des Beleuchtungsmodells an jedem polygonalen Scheitelpunkt (Beispiel: $I_(1)$, $I_(2)$, $I_(3)$)
-  - Intensitäten als Teil der Scan-Konvertierung interpoliert
-    - Interpolieren der Spannenendpunkte aus Kantenscheitelpunkten (Beispiel: $I_(a)$, $I_(b)$)
-    - Interpolieren von Punkten innerhalb einer Spannweite aus Spannweitenendpunkten (Beispiel: $I_(p)$)
-  
+  - Lichtberechnungen werden an allen Vertices der Polygone berechnet
+  - Die Farben an den Vertices werden interpoliert über die Fläche des Polygons
+  - Erstellt einen Gradienten auf jedem Face
+
   #figure(
-    cetz.canvas(length: 5cm, {
-      import cetz.draw: *
-
-      line(
-        (0, 0), 
-        (1, 1), 
-        (2, 0), 
-        close: true, 
-        stroke: (
-          paint: hszg-green, 
-          thickness: 2.5pt,
-          join: "round"
-        ), 
-        fill: hszg-green.lighten(90%)
-      )
-      line(
-        (0, 0.5), 
-        (2, 0.5), 
-        stroke: (
-          thickness: 2.5pt, 
-          dash: "loosely-dashed",
-          cap: "round"
-        )
-      )
-
-      circle((1, 0.5), radius: 5pt, name: "Ip", fill: black)
-      content("Ip.south", [$I_(p)$], padding: (top: 35pt))
-
-      circle((0.5, 0.5), radius: 5pt, name: "Ia", fill: black)
-      content("Ia.north", [$I_(a)$], padding: (bottom: 25pt, right: 25pt))
-
-      circle((1.5, 0.5), radius: 5pt, name: "Ib", fill: black)
-      content("Ib.north", [$I_(b)$], padding: (bottom: 25pt, left: 25pt))
-
-      content((0, 0), [$I_(2)$], padding: (right: 25pt))
-      content((2, 0), [$I_(3)$], padding: (left: 25pt))
-      content((1, 1), [$I_(1)$], padding: (bottom: 25pt))
-    })
+    image("../../Images/gouraud_shading_torus.png", width: 50%)
   )
+]
+
+#slide[
+  = Gouraud Shading
+  === Eigenschaften
+  #set align(horizon)
+  #v(1fr)
+  - *Berechnung*: Berechnung an alles Vertices
+  - *Aussehen*: Weichere Übergänge zwischen Farben, dadurch weniger Facetten als bei Flat Shading
+  - *Performance*: Langsamer als Flat Shading aber schneller als Phong, da es Interpolation nutzt, aber weniger Lichtberechnungen
+  - *Use-Case*: Weiches Shading ist gewollt, aber Performance ist ein kritischer Faktor
+  #v(1fr)
+  *Allerdings*: Fehler an den Kanten der Polygonen oft vorhanden
+  #v(1fr)
 ]
 
 #slide[
@@ -108,60 +159,64 @@
   Verbessert das Gouraud-Schattierungsmodell
   - Anwenden des Beleuchtungsmodells auf jeden Pixel
   - Dies erfordert eine Normale $N$ an jedem Pixel
-  - $N$ an jedem Pixel wird aus $N$ an den Scheitelpunkten interpoliert
-  Gouraud wendet das Beleuchtungsmodell an jedem Scheitelpunkt an, dann interpoliert es den Pixelwert
-  - Dies erfordert eine Normale nur an den Scheitelpunkten
+  - $N$ an jedem Pixel wird aus den Normalen des Polygons interpoliert
+  // Gouraud wendet das Beleuchtungsmodell an jedem Scheitelpunkt an, dann interpoliert es den Pixelwert
+  // - Dies erfordert eine Normale nur an den Scheitelpunkten
 
   #figure(
-    cetz.canvas(length: 5cm, {
-      import cetz.draw: *
-
-      line(
-        (0, 0), 
-        (1, 1), 
-        (2, 0), 
-        close: true, 
-        stroke: (
-          paint: hszg-green, 
-          thickness: 2.5pt,
-          join: "round"
-        ), 
-        fill: hszg-green.lighten(90%)
-      )
-      line(
-        (0, 0.5), 
-        (2, 0.5), 
-        stroke: (
-          thickness: 2.5pt, 
-          dash: "loosely-dashed",
-          cap: "round"
-        )
-      )
-
-      circle((1, 0.5), radius: 5pt, name: "Np", fill: black)
-      content("Np.south", [$N_(p)$], padding: (top: 35pt))
-
-      circle((0.5, 0.5), radius: 5pt, name: "Na", fill: black)
-      content("Na.north", [$N_(a)$], padding: (bottom: 25pt, right: 25pt))
-
-      circle((1.5, 0.5), radius: 5pt, name: "Nb", fill: black)
-      content("Nb.north", [$N_(b)$], padding: (bottom: 25pt, left: 25pt))
-
-      content((0, 0), [$N_(2)$], padding: (right: 25pt))
-      content((2, 0), [$N_(3)$], padding: (left: 25pt))
-      content((1, 1), [$N_(1)$], padding: (bottom: 25pt))
-    })
+    image("../../Images/phong_shading_torus.png", width: 60%)
   )
+
+  // #figure(
+  //   cetz.canvas(length: 5cm, {
+  //     import cetz.draw: *
+
+  //     line(
+  //       (0, 0), 
+  //       (1, 1), 
+  //       (2, 0), 
+  //       close: true, 
+  //       stroke: (
+  //         paint: hszg-green, 
+  //         thickness: 2.5pt,
+  //         join: "round"
+  //       ), 
+  //       fill: hszg-green.lighten(90%)
+  //     )
+  //     line(
+  //       (0, 0.5), 
+  //       (2, 0.5), 
+  //       stroke: (
+  //         thickness: 2.5pt, 
+  //         dash: "loosely-dashed",
+  //         cap: "round"
+  //       )
+  //     )
+
+  //     circle((1, 0.5), radius: 5pt, name: "Np", fill: black)
+  //     content("Np.south", [$N_(p)$], padding: (top: 35pt))
+
+  //     circle((0.5, 0.5), radius: 5pt, name: "Na", fill: black)
+  //     content("Na.north", [$N_(a)$], padding: (bottom: 25pt, right: 25pt))
+
+  //     circle((1.5, 0.5), radius: 5pt, name: "Nb", fill: black)
+  //     content("Nb.north", [$N_(b)$], padding: (bottom: 25pt, left: 25pt))
+
+  //     content((0, 0), [$N_(2)$], padding: (right: 25pt))
+  //     content((2, 0), [$N_(3)$], padding: (left: 25pt))
+  //     content((1, 1), [$N_(1)$], padding: (bottom: 25pt))
+  //   })
+  // )
 ]
 
-#slide[
-  = Phong Shading
-  #set align(horizon)
+// #slide[
+//   = Phong Shading
+//   #set align(horizon)
 
-  Interpolation der Normalen eines Pixels, $N$, als Teil der Scan-Konvertierung
-  - Um $N$ an den Endpunkten eines Bereichs zu erhalten, interpoliert Sie aus den Normalen der Kantenscheitelpunkte
-  - Um $N$ innerhalb eines Bereichs zu erhalten, wird von den Endpunkten des Bereichs interpoliert
-]
+//   Interpolation der Normalen eines Pixels, $N$, als Teil der Scan-Konvertierung
+//   - Um $N$ an den Endpunkten eines Bereichs zu erhalten, interpoliert Sie aus den Normalen der Kantenscheitelpunkte
+//   - Um $N$ innerhalb eines Bereichs zu erhalten, wird von den Endpunkten des Bereichs interpoliert
+// ]
 
 #slide[
   = Phong Shading
@@ -184,6 +239,29 @@
     ]
   )
 ]
+
+#slide[
+  = Phong Shading
+  === Eigenschaften
+  #set align(horizon)
+
+  - *Berechnungen*: Lichtberechnungen werden an allen Pixel berechnet
+  - *Aussehen*: Realistisches und weiches Shading mit akkuraten Highlights und Reflektionen
+  - *Performance*: Langsamstes Modell mit den meisten Berechnungen
+  - *Use-Case*: High-Quality Renderings, zum Beispiel: Animationsfile oder Spiele
+]
+
+// #slide[
+//   = Phong Shading
+//   #set align(horizon)
+
+//   - Lichtberechnungen werden pro Pixel berechnet
+//   - Interpolation der Flächennormalen und daraus Berechnung der Farben
+
+//   #figure(
+//     image("../../Images/phong_shading_torus.png", width: 60%)
+//   )
+// ]
 
 #slide[
   = Shading

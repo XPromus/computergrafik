@@ -43,13 +43,13 @@
 ]
 
 #slide[
-  //TODO: More Infos
   = Punktlicht
   #set align(horizon)
   - Punktlichter emittieren Licht in alle Richtungen
-  - Intensität der Beleuchtung ist das Inverse des Quadrats der Entfernung von Quelle und Oberfläche
+  - Stärke des Lichts nimmt mit zunehmender Distanz ab
   - Werden eher eingesetzt aus Effizienz-Gründen, weniger wegen Realismus
-
+  - Beispiel: Glühbirne
+  
   #figure(
     image("../../Images/lights/point_light.png", width: 70%)
   )
@@ -58,7 +58,8 @@
 #slide[
   = Spotlight
   #set align(horizon)
-  - Point Lights mit limitierter Richtung
+  - Emittiert Licht in Form eines Kegels
+  - Licht wird stärker, je näher man der Lichtquelle kommt
   - Realismus kann erhöht werden durch variierende Intensität entlang des Kegels
   - Kein Licht außerhalb des Kegels, aber harte Verläufe eher unnatürlich
 
@@ -83,9 +84,11 @@
 #slide[
   = Area Light
   #set align(horizon)
-
+  - 3D Objekte die Licht emittieren
+  - Werden als physische Formen angesehen
+  - Weichere Schatten und realistischere Beleuchtung 
   #figure(
-    image("../../Images/lights/area_light.png")
+    image("../../Images/lights/area_light.png", width: 70%)
   )
 ]
 
@@ -359,7 +362,7 @@
 #slide[
   = Beleuchtungsmodelle
   #set align(horizon)
-  #set text(size: 15pt)
+  #set text(size: 20pt)
   Das Phong Beleuchtungsmodell enthält nur:
     - Lichtquellen
     - Materialien am Objektpunkt
@@ -370,10 +373,10 @@
     - Das Erscheinungsbild von Metallen ist realistischer
     - Einfaches Festlegen von 3D-Modellen, die in allen Anwendungen gut aussehen (kein Tweaking erforderlich)
     - Verbreitet in modernen Spiel-Engines und 3D Software (Unity, Unreal, Blender ...)
-  #line(length: 100%)
-  Echte Beleuchtung gehört dazu:
-    - Lichtreflexion von einem Objekt auf ein anderes (globales Modell)
-    - Zusätzliche Lichtquellen für einen Objektpunkt
-    - Transparenz
-    - Raytracing, Radiosity-Ansätze
+  // #line(length: 100%)
+  // Echte Beleuchtung gehört dazu:
+  //   - Lichtreflexion von einem Objekt auf ein anderes (globales Modell)
+  //   - Zusätzliche Lichtquellen für einen Objektpunkt
+  //   - Transparenz
+  //   - Raytracing, Radiosity-Ansätze
 ]
