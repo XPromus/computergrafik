@@ -49,6 +49,10 @@
   - Punktlichter emittieren Licht in alle Richtungen
   - Intensität der Beleuchtung ist das Inverse des Quadrats der Entfernung von Quelle und Oberfläche
   - Werden eher eingesetzt aus Effizienz-Gründen, weniger wegen Realismus
+
+  #figure(
+    image("../../Images/lights/point_light.png", width: 70%)
+  )
 ]
 
 #slide[
@@ -57,6 +61,10 @@
   - Point Lights mit limitierter Richtung
   - Realismus kann erhöht werden durch variierende Intensität entlang des Kegels
   - Kein Licht außerhalb des Kegels, aber harte Verläufe eher unnatürlich
+
+  #figure(
+    image("../../Images/lights/spot_light.png", width: 75%)
+  )
 ]
 
 #slide[
@@ -66,6 +74,28 @@
   - Licht fällt parallel
   - Keine Dämpfung
   - Beispiel: Sonne in Blender
+
+  #figure(
+    image("../../Images/lights/sun_light.png", width: 70%)
+  )
+]
+
+#slide[
+  = Area Light
+  #set align(horizon)
+
+  #figure(
+    image("../../Images/lights/area_light.png")
+  )
+]
+
+#slide[
+  = Area Light
+  #set align(horizon)
+
+  #figure(
+    image("../../Images/lights/area_light_scene.png", width: 60%)
+  )
 ]
 
 #slide[
@@ -106,10 +136,15 @@
 
 #slide[
   = #phongReflectionModel
+  == Übersicht
   #set align(horizon)
+
   - 1975 von Bui Tuong Phong vorgestellt
-  - empirisches Modell, widerspricht Energieerhaltungssatz
-  - Lichtquellen sind punktförmig
+  - Simulation von glänzenden Highlights oder hellen Stellen an Objekten mit punktförmigen Lichtquellen
+  - Beispiel: Polierte Böden, bemalte Oberflächen, Whiteboards, ...
+  - Mehr visuelle Tiefe durch die Reflektion von Licht
+  - Lässt Oberflächen *glossy* und *metallic* erscheinen
+  - Entwickelt für Oberflächen, die nicht komplett matt sind
 
   #figure(
     image("../../Images/phong_reflection_components.png", fit: "contain"),
@@ -121,19 +156,62 @@
 
 #slide[
   = #phongReflectionModel
+  == Übersicht
+  #set align(horizon)
+
+  - Die Highlights passen sich dem Betrachter an
+    - Einführung eines neuen Vektors: $accent(V, arrow)$
+    - $accent(V, arrow)$ zeigt Richtung Kamera
+  - Highlights auf der Oberfläche sind Reflektionen der Lichtquelle
+  - Oftmals verschwommene Reflektion durch _Abprallen_ der Lichtstrahlen an der Oberfläche
+]
+
+#slide[
+  = #phongReflectionModel
+  #set align(horizon + center)
+
+  #figure(
+    canvas(length: 2cm, {
+      import draw: *
+
+      rect((0, 0), (5, 2), stroke: 2.5pt + hszg-green, fill: hszg-green.lighten(90%))
+
+      line((2.5, 2), (1, 4), stroke: 2.5pt + red, mark: (end: ">"), name: "light_vector")
+      line((2.5, 2), (2.5, 4), stroke: 2.5pt + red, mark: (end: ">"), name: "surface_normal")
+      line((2.5, 2), (4, 4), stroke: 2.5pt + red, mark: (end: ">"), name: "reflection_vector")
+
+      line((2.5, 2), (6, 3), stroke: 2.5pt + red, mark: (end: ">"), name: "view_vector")
+
+      content("light_vector.100%", [$accent(L, arrow)$], padding: (bottom: 25pt))
+      content("surface_normal.100%", [$accent(N, arrow)$], padding: (bottom: 25pt))
+      content("reflection_vector.100%", [$accent(R, arrow)$], padding: (bottom: 25pt))
+      content("view_vector.100%", [$accent(V, arrow)$], padding: (bottom: 25pt, left: 25pt))
+
+      content(("view_vector.100%"), text(size: 50pt)[#emoji.eye], padding: (left: 150pt, bottom: 50pt))
+      content(("light_vector.100%"), text(size: 50pt)[#emoji.sun], padding: (right: 100pt, bottom: 155pt))
+
+      content((2.15, 3), [$phi$])
+      content((2.85, 3), [$phi$])
+      content((4, 3), [$theta$])
+    })
+  )
+]
+
+#slide[
+  = #phongReflectionModel
   #set align(horizon)
 
   $ I_("out") eq I_("ambient") plus I_("diffuse") plus I_("specular") $
 
-  $I_("ambient")$ Ambiente Komponente:
+  *$I_("ambient")$ Ambiente Komponente:*
   - Unabhängigkeit von Einfallswinkel und Blickwinkel
   - Abhängig von Reflexionsfaktor (Material) und Umgebungslicht
 
-  $I_("diffuse")$ Diffuse Komponente:
+  *$I_("diffuse")$ Diffuse Komponente:*
   - Reflexion in alle Richtungen, unabhängig von Standpunkt
   - Abhängig von Einfallswinkel und diffuser Reflexionsfaktor
 
-  $I_("specular")$ Spiegelnde Komponente:
+  *$I_("specular")$ Spiegelnde Komponente:*
   - Reflexion des Lichts in idealer Richtung
   - Abhängig von Einfallswinkel, Reflexionsfaktor, Oberfläche und Blickrichtung
 ]
@@ -146,7 +224,7 @@
     columns: (1fr),
     [
       #rect(stroke: hszg-green + 2pt, fill: hszg-green.lighten(90%), width: 100%, inset: 15pt)[
-        $I_("ambient") eq I_(a) times k_("ambient")$
+        $I_("ambient") eq I_(a) dot k_("ambient")$
       ]
     ], [
       #rect(stroke: hszg-green + 2pt, width: 100%, inset: 15pt)[
@@ -166,15 +244,41 @@
     columns: (1fr),
     [
       #rect(stroke: hszg-green + 2pt, fill: hszg-green.lighten(90%), width: 100%, inset: 15pt)[
-        $I_("diffus") eq I_("in") times k_("diffus") times cos(phi)$
+        $I_("diffus") eq I_("in") dot k_("diffus") dot cos(phi)$
       ]
     ], [
       #rect(stroke: hszg-green + 2pt, width: 100%, inset: 15pt)[
         - $I_("in")$ ... Lichtstärke einfallender Lichtstrahl
         - $k_("diffus")$ ... diffuser Reflexionsfaktor
-        - $phi$ ... Winkel zwischen Normale der Oberfläche und Lichtstrahl
+        - #text(fill: red)[*$phi$*] ... Winkel zwischen Normale $accent(N, arrow)$ der Oberfläche und Lichtstrahl $accent(L, arrow)$
       ]
     ]
+  )
+
+  #figure(
+    canvas({
+      import draw: *
+
+      rect((0, 0), (5, 2), stroke: 2pt + hszg-green, fill: hszg-green.lighten(90%))
+
+      line((2.5, 2), (1, 4), stroke: 2pt + red, mark: (end: ">"), name: "light_vector")
+      line((2.5, 2), (2.5, 4), stroke: 2pt + red, mark: (end: ">"), name: "surface_normal")
+      line((2.5, 2), (4, 4), stroke: 2pt + black, mark: (end: ">"), name: "reflection_vector")
+
+      line((2.5, 2), (6, 3), stroke: 2pt + black, mark: (end: ">"), name: "view_vector")
+
+      content("light_vector.100%", [$accent(L, arrow)$], padding: (bottom: 25pt))
+      content("surface_normal.100%", [$accent(N, arrow)$], padding: (bottom: 25pt))
+      content("reflection_vector.100%", [$accent(R, arrow)$], padding: (bottom: 25pt))
+      content("view_vector.100%", [$accent(V, arrow)$], padding: (bottom: 25pt, left: 25pt))
+
+      content(("view_vector.100%"), text(size: 25pt)[#emoji.eye], padding: (left: 100pt, bottom: 25pt))
+      content(("light_vector.100%"), text(size: 25pt)[#emoji.sun], padding: (right: 50pt, bottom: 80pt))
+
+      content((2.15, 3), text(fill: red)[*$phi$*])
+      content((2.85, 3), [$phi$])
+      content((4, 3), [$theta$])
+    })
   )
 ]
 
@@ -187,16 +291,42 @@
     columns: (1fr),
     [
       #rect(stroke: hszg-green + 2pt, fill: hszg-green.lighten(90%), width: 100%, inset: 15pt)[
-        $I_("specular") eq I_("in") times k_("specular") times cos^(n)(theta)$ 
+        $I_("specular") eq I_("in") dot k_("specular") dot cos^(n)(theta)$ 
       ]
     ], [
       #rect(stroke: hszg-green + 2pt, width: 100%, inset: 15pt)[
         - $I_("in")$ ... Lichtstärke einfallender Lichtstrahl
         - $k_("specular")$ ... Reflexionsfaktor für Spiegelung
-        - $theta$ ... Winkel zwischen Reflexionsrichtung und Blickrichtung
+        - #text(fill: red)[*$theta$*] ... Winkel zwischen Reflexionsrichtung und Blickrichtung
         - n ... Konstante zur Beschreibung von Oberflächenbeschaffenheit
       ]
     ]
+  )
+
+  #figure(
+    canvas({
+      import draw: *
+
+      rect((0, 0), (5, 2), stroke: 2pt + hszg-green, fill: hszg-green.lighten(90%))
+
+      line((2.5, 2), (1, 4), stroke: 2pt + black, mark: (end: ">"), name: "light_vector")
+      line((2.5, 2), (2.5, 4), stroke: 2pt + black, mark: (end: ">"), name: "surface_normal")
+      line((2.5, 2), (4, 4), stroke: 2pt + red, mark: (end: ">"), name: "reflection_vector")
+
+      line((2.5, 2), (6, 3), stroke: 2pt + red, mark: (end: ">"), name: "view_vector")
+
+      content("light_vector.100%", [$accent(L, arrow)$], padding: (bottom: 25pt))
+      content("surface_normal.100%", [$accent(N, arrow)$], padding: (bottom: 25pt))
+      content("reflection_vector.100%", [$accent(R, arrow)$], padding: (bottom: 25pt))
+      content("view_vector.100%", [$accent(V, arrow)$], padding: (bottom: 25pt, left: 25pt))
+
+      content(("view_vector.100%"), text(size: 25pt)[#emoji.eye], padding: (left: 100pt, bottom: 25pt))
+      content(("light_vector.100%"), text(size: 25pt)[#emoji.sun], padding: (right: 50pt, bottom: 80pt))
+
+      content((2.15, 3), [$phi$])
+      content((2.85, 3), [$phi$])
+      content((4, 3), text(fill: red)[*$theta$*])
+    })
   )
 ]
 
@@ -205,8 +335,8 @@
   #set align(horizon)
   - Erweiterung für spiegelnde Komponente: Normalisierungsfaktor
   - Helligkeit soll bei großen Werten $n$ nicht abnehmen
-  - sinnvoller Faktor: $f eq frac((n plus 2), 2 times pi)$
-  $ I_("specular") eq I_("in") times k_("specular") times f times cos^(n)(theta) $
+  - sinnvoller Faktor: $f eq frac((n plus 2), 2 dot pi)$
+  $ I_("specular") eq I_("in") dot k_("specular") dot f dot cos^(n)(theta) $
 
   *Gesamtdarstellung* für $I_("out") eq I_("ambient") plus I_("diffuse") + I_("specular")$ \
   #grid(
@@ -218,8 +348,11 @@
   )
   
   $ 
-    I_("out") &eq I_(a) times k_("ambient") plus I_("in") times k_("diffuse") times cos(phi) plus I_("in") times k_("specular") times frac(n plus 2, 2 times pi) times cos^(n)(theta) \
-    I_("out") &eq I_(a) times k_("ambient") plus I_("in") times [k_("diffuse") times (accent(L, arrow) accent(N, arrow)) plus k_("specular") times frac(n plus 2, 2 times pi) times (accent(R, arrow) accent(V, arrow))^(n)] 
+    I_("out") &eq 
+      overbrace((I_(a) dot k_("ambient")), I_("ambient")) plus 
+      overbrace((I_("in") dot k_("diffuse") dot cos(phi)), I_("diffuse")) plus 
+      overbrace((I_("in") dot k_("specular") dot frac(n plus 2, 2 dot pi) dot cos^(n)(theta)), I_("specular")) \
+    I_("out") &eq I_(a) dot k_("ambient") plus I_("in") dot [k_("diffuse") dot (accent(L, arrow) accent(N, arrow)) plus k_("specular") dot frac(n plus 2, 2 dot pi) dot (accent(R, arrow) accent(V, arrow))^(n)] 
   $
 ]
 

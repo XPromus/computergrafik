@@ -165,7 +165,7 @@
 
   - Gloss Map: Textur, die Glanzkomponente über die Oberfläche variiert
   - Berechnung pro Pixel:
-  $ o eq t_("diff") times i_("diff") plus t_("gloss") times i_("spec") $
+  $ o eq t_("diff") dot i_("diff") plus t_("gloss") dot i_("spec") $
   - $t_("diff")$ ... RGB diffuse Textur
   - $i_("diff")$ ... interpolierte diffuse Beleuchtung aus Vertices
   - $t_("gloss")$ ... Einzelwert Glossmap
