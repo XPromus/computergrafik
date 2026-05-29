@@ -1,6 +1,6 @@
 import type { Triangle } from "../data/Triangle";
 
-export class Trinagulation {
+export class Triangulation {
     readonly triangles: Triangle[];
 
     constructor(

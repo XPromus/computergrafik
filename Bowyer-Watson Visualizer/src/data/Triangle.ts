@@ -41,11 +41,7 @@ export class Triangle {
     }
 
     public containsEdge(edge: Edge): boolean {
-        if (this.edges.some(item => item.equals(edge))) {
-            return true;
-        }
-
-        return false;
+        return this.edges.some(item => item.equals(edge));
     }
 
     public equals(triangle: Triangle): boolean {

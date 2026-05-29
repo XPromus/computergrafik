@@ -1,15 +1,15 @@
 import { Vector3 } from "three";
 import { Edge } from "../data/Edge";
 import { Triangle } from "../data/Triangle";
-import { Trinagulation } from "./Triangulation";
+import { Triangulation } from "./Triangulation";
 
 export class Triangulator {
 
     public static triangulate(
         Vector3s: Vector3[]
-    ): Trinagulation {
+    ): Triangulation {
         if (Vector3s.length < 3) {
-            return new Trinagulation([]);
+            return new Triangulation([]);
         }
 
         const superTriangle = this.calculateSuperTriangle(Vector3s);
@@ -39,7 +39,7 @@ export class Triangulator {
             finalTriangles.push(triangle);
         }
 
-        return new Trinagulation(finalTriangles);
+        return new Triangulation(finalTriangles);
     }
 
     private static calculateSuperTriangle(
