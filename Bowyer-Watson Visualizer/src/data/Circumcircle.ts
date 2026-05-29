@@ -1,19 +1,18 @@
-import type { Triangle } from "three";
-import { Point } from "./Point";
+import { Vector3, type Triangle } from "three";
 
 export class Circumcircle {
-    readonly center: Point;
+    readonly center: Vector3;
     readonly radius: number;
 
     constructor(
-        center: Point,
+        center: Vector3,
         radius: number
     ) {
         this.center = center;
         this.radius = radius;
     }
 
-    public isPointInCircumcircle(point: Point): boolean {
+    public isPointInCircumcircle(point: Vector3): boolean {
         const deltaX = point.x - this.center.x;
         const deltaY = point.y - this.center.y;
         const distance = Math.pow(deltaX, 2) + Math.pow(deltaY, 2);
@@ -29,7 +28,7 @@ export class Circumcircle {
         );
     }
 
-    public static fromPoints(a: Point, b: Point, c: Point): Circumcircle {
+    public static fromPoints(a: Vector3, b: Vector3, c: Vector3): Circumcircle {
         const center = Circumcircle.calculateCenter(a, b, c);
         const radius = Circumcircle.calculateRadius(center, a);
         return new Circumcircle(
@@ -37,13 +36,13 @@ export class Circumcircle {
         );
     }
 
-    private static calculateRadius(center: Point, a: Point): number {
+    private static calculateRadius(center: Vector3, a: Vector3): number {
         return Math.sqrt(
             Math.pow(center.x - a.x, 2) + Math.pow(center.y - a.y, 2)
         );
     }
 
-    private static calculateCenter(a: Point, b: Point, c: Point): Point {
+    private static calculateCenter(a: Vector3, b: Vector3, c: Vector3): Vector3 {
         const d = Math.abs(
             2 * (
                 ((a.x * (b.y - c.y)) + b.x) * 
@@ -64,6 +63,6 @@ export class Circumcircle {
             (Math.pow(c.x, 2) + Math.pow(c.y, 2)) * (b.y - a.y)
         ) / d;
 
-        return new Point(ux, uy, 0);
+        return new Vector3(ux, uy, 0);
     }
 }

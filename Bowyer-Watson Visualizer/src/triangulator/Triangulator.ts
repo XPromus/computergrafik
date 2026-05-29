@@ -1,27 +1,27 @@
+import { Vector3 } from "three";
 import { Edge } from "../data/Edge";
-import { Point } from "../data/Point";
 import { Triangle } from "../data/Triangle";
 import { Trinagulation } from "./Triangulation";
 
 export class Triangulator {
 
     public static triangulate(
-        points: Point[]
+        Vector3s: Vector3[]
     ): Trinagulation {
-        if (points.length < 3) {
+        if (Vector3s.length < 3) {
             return new Trinagulation([]);
         }
 
-        const superTriangle = this.calculateSuperTriangle(points);
+        const superTriangle = this.calculateSuperTriangle(Vector3s);
         let triangles: Triangle[] = [];
         triangles.push(superTriangle);
 
-        for (const point of points) {
-            const badTriangles = this.findBadTriangles(point, triangles);
+        for (const Vector3 of Vector3s) {
+            const badTriangles = this.findBadTriangles(Vector3, triangles);
             const polygon = this.createPolygonFromBadTriangles(badTriangles);
             triangles = this.removeInstancesFromList(triangles, badTriangles);
             for (const edge of polygon) {
-                const newTriangle = Triangle.fromEdgeAndPoint(edge, point);
+                const newTriangle = Triangle.fromEdgeAndPoint(edge, Vector3);
                 triangles.push(newTriangle);
             }
         }
@@ -43,24 +43,24 @@ export class Triangulator {
     }
 
     private static calculateSuperTriangle(
-        points: Point[]
+        Vector3s: Vector3[]
     ): Triangle {
-        const minX = points.reduce((r, e) => r.x < e.x ? r : e).x;
-        const maxX = points.reduce((r, e) => r.x > e.x ? r : e).x;
-        const minY = points.reduce((r, e) => r.y < e.y ? r : e).y;
-        const maxY = points.reduce((r, e) => r.y > e.y ? r : e).y;
+        const minX = Vector3s.reduce((r, e) => r.x < e.x ? r : e).x;
+        const maxX = Vector3s.reduce((r, e) => r.x > e.x ? r : e).x;
+        const minY = Vector3s.reduce((r, e) => r.y < e.y ? r : e).y;
+        const maxY = Vector3s.reduce((r, e) => r.y > e.y ? r : e).y;
 
         const squareWidth = Math.max(maxX - minX, maxY - minY);
 
         return new Triangle(
-            new Point(minX - 0.5 * squareWidth, minY, 0),
-            new Point(minX + 1.5 * squareWidth, minY, 0),
-            new Point(minX + 0.5 * squareWidth, minY + 2 * squareWidth, 0)
+            new Vector3(minX - 0.5 * squareWidth, minY, 0),
+            new Vector3(minX + 1.5 * squareWidth, minY, 0),
+            new Vector3(minX + 0.5 * squareWidth, minY + 2 * squareWidth, 0)
         );
     }
 
     private static findBadTriangles(
-        point: Point,
+        Vector3: Vector3,
         triangles: Triangle[]
     ): Triangle[] {
         const badTriangles: Triangle[] = [];
@@ -68,7 +68,7 @@ export class Triangulator {
         for (let index = 0; index < triangles.length; index++) {
             const triangle = triangles[index];
 
-            if (triangle.circumcircle.isPointInCircumcircle(point)) {
+            if (triangle.circumcircle.isPointInCircumcircle(Vector3)) {
                 badTriangles.push(triangle);
             }
         }

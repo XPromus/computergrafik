@@ -1,12 +1,12 @@
-import type { Point } from "./Point";
+import type { Vector3 } from "three";
 
 export class Edge {
-    readonly a: Point;
-    readonly b: Point;
+    readonly a: Vector3;
+    readonly b: Vector3;
 
     constructor(
-        a: Point,
-        b: Point
+        a: Vector3,
+        b: Vector3
     ) {
         this.a = a;
         this.b = b;

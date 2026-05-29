@@ -1,12 +1,12 @@
 import * as THREE from "three";
-import { Point } from "./data/Point";
+import { Vector3 } from "three";
 import { Triangulator } from "./triangulator/Triangulator";
 
-const points: Point[] = [
-  new Point(0, 0, 0),
-  new Point(1, 1, 0),
-  new Point(1, 0, 0),
-  new Point(0.5, 0.25, 0)
+const points: Vector3[] = [
+  new Vector3(0, 0, 0),
+  new Vector3(1, 1, 0),
+  new Vector3(1, 0, 0),
+  new Vector3(0.5, 0.25, 0)
 ]
 
 const triangulation = Triangulator.triangulate(points);

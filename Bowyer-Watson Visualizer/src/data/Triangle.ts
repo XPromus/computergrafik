@@ -1,19 +1,20 @@
+import type { Vector3 } from "three";
+import * as THREE from "three";
 import { Circumcircle } from "./Circumcircle";
 import { Edge } from "./Edge";
-import type { Point } from "./Point";
 
 export class Triangle {
-    readonly a: Point;
-    readonly b: Point;
-    readonly c: Point;
+    readonly a: Vector3;
+    readonly b: Vector3;
+    readonly c: Vector3;
     readonly edges: Edge[];
 
     readonly circumcircle: Circumcircle;
 
     constructor(
-        a: Point,
-        b: Point,
-        c: Point
+        a: Vector3,
+        b: Vector3,
+        c: Vector3
     ) {
         this.a = a;
         this.b = b;
@@ -30,12 +31,12 @@ export class Triangle {
 
     public static fromEdgeAndPoint(
         edge: Edge, 
-        point: Point
+        point: Vector3
     ) {
         return new Triangle(edge.a, edge.b, point);
     }
 
-    public containsPoint(point: Point): boolean {
+    public containsPoint(point: Vector3): boolean {
         return this.a.equals(point) || this.b.equals(point) || this.c.equals(point);
     }
 
@@ -49,5 +50,11 @@ export class Triangle {
 
     public equals(triangle: Triangle): boolean {
         return this.a.equals(triangle.a) && this.b.equals(triangle.b) && this.c.equals(triangle.c); 
+    }
+
+    public toThreeTriangle(): THREE.Triangle {
+        return new THREE.Triangle(
+            this.a, this.b, this.c
+        )
     }
 }
