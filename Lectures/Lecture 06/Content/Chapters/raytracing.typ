@@ -392,7 +392,7 @@
   = Diffuses / Stochastisches Raytracing
   #set align(horizon)
 
-  Problem mit Whitted Raytracing: Alles ist unscharf
+  Problem mit Whitted Raytracing:
   - Harte Schatten
   - Perfekte Reflektionen
     - Erfordert perfekte Spiegelungen
