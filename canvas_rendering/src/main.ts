@@ -1,7 +1,9 @@
 import { Color } from "./data/color";
 import { Line } from "./data/line";
 import { Particle } from "./data/particle";
+import { Projection } from "./math/projection";
 import { Vector2 } from "./math/vector2";
+import { Vector3 } from "./math/vector3";
 
 const FPS: number = 60;
 
@@ -54,9 +56,22 @@ const clear = () => {
 	ctx.fillRect(0, 0, particleCanvas.width, particleCanvas.height);
 }
 
-const drawPoint = (particle: Particle) => {
+const drawParticle = (particle: Particle) => {
 	ctx.fillStyle = particle.color.toRGBA();
     ctx.fillRect(particle.pos.x, particle.pos.y, particle.size, particle.size);
+}
+
+const drawPoint = (
+    point: Vector2,
+    size: number
+) => {
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(
+        point.x - size / 2, 
+        point.y - size / 2, 
+        size, 
+        size
+    );
 }
 
 const createNewParticle = (): Particle => {
@@ -78,7 +93,7 @@ const frame = () => {
             createNewParticle(),
         )
         for (let i = 0; i < particles.length; i++) {
-            drawPoint(particles[i]);
+            drawParticle(particles[i]);
             particles[i].calcNewPos(SPEED, deltaTime);
             particles[i].updateColor();
             particles[i].lifetime += 1;
@@ -95,6 +110,9 @@ const frame = () => {
 	ctx.stroke(line.toPath2D());
 
     particleCounter.innerHTML = particles.length.toString();
+
+    const point = new Vector3(0, 0, 2);
+    drawPoint(Projection.toScreen(Projection.project(point), particleCanvas.width, particleCanvas.height), 20)
 
 	setTimeout(frame, 1000 / FPS);
 }
