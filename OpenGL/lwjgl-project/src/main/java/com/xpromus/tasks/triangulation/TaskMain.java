@@ -4,11 +4,14 @@ import com.xpromus.engine.Engine;
 import com.xpromus.engine.IAppLogic;
 import com.xpromus.engine.Window;
 import com.xpromus.engine.graph.Mesh;
+import com.xpromus.engine.graph.Model;
 import com.xpromus.engine.graph.Render;
+import com.xpromus.engine.scene.Entity;
 import com.xpromus.engine.scene.Scene;
 import com.xpromus.tasks.data.Point2D;
 import com.xpromus.tasks.util.MeshConverter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TaskMain implements IAppLogic {
@@ -39,9 +42,21 @@ public class TaskMain implements IAppLogic {
         var triangulator = new Triangulator();
 
         var triangles = triangulator.Triangulate(List.of(points));
+
+        List<Mesh> meshList = new ArrayList<>();
+
         var newMesh = MeshConverter.ConvertToMesh(triangles);
         Mesh mesh = new Mesh(newMesh.getCoordinates(), newMesh.getColors(), newMesh.getTriangleIndices());
-        //scene.addMesh("quad", mesh);
+        meshList.add(mesh);
+
+        var modelId = "model";
+        var model = new Model(modelId, meshList);
+        scene.addModel(model);
+
+        var entity = new Entity("entity", modelId);
+        entity.setPosition(0, 0, -2);
+
+        scene.addEntity(entity);
     }
 
     @Override

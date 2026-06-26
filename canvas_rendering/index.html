@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>canvas_rendering</title>
+  </head>
+  <body>
+    <canvas id="renderingCanvas"></canvas>
+    <span>Number of Particles: </span><span id="numberOfParticles"></span>
+    <br>
+    <button id="startButton" onclick="onStartButtonClicked()">Start</button>
+    <button id="stopButton" onclick="onStopButtonClicked()">Stop</button>
+    <br>
+    <label for="particleColor">Particle Color:</label>
+    <input type="color" id="particleColor">
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
