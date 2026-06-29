@@ -12,8 +12,7 @@
 #include "Rendering/rendering_pipeline.typ"
 
 #slide[
-  //TODO: Graphics for showing clipping planes
-  = Synthetische Kamera
+  = Synthetische Kamera 
   #set align(horizon)
   - Kamera/Viewpoint Location
   - Kamera/Viewpoint Direction
@@ -25,7 +24,7 @@
 ]
 
 #slide[
-  = Parallele und perspektivische Projektion
+  = Parallele und perspektivische Projektion 
   #set align(horizon + center)
   #figure()[
     #image("../../Images/perspective_ortho_projection.png", fit: "contain")
@@ -35,7 +34,7 @@
 #include "Rendering/canonical_view_volume.typ"
 
 #slide[
-  = Clipping
+  = Clipping 
   #set align(horizon)
   - Polygone außerhalb der Ansichtsvolumen verwerfen
   - Polygone gegen Ansichtsvolumen beschneiden
@@ -43,12 +42,12 @@
     - Einfach gegen eine Box zu clippen als gegen einen Sichtkegel
   
   #figure()[
-    #image("../../Images/clipping.png", fit: "contain")
+    #image("../../Images/clipping.png", fit: "contain", width: 90%)
   ]
 ]
 
 #slide[
-  = Visible Surface Determination
+  = Visible Surface Determination 
   #set align(horizon)
   - *Objekt-Präzisionsmethoden*
     - pro Polygon; Welt-/Kamerakoordinaten; Fließkommazahlen

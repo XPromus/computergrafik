@@ -1,5 +1,5 @@
 #import "../../Template/definitions.typ": *
-#import "../../Template/template.typ": hszg-green, chapter-title-slide
+#import "../../Template/template.typ": *
 
 #chapter-title-slide(section-name: [LOD])
 
@@ -291,7 +291,7 @@
 ]
 
 #slide[
-  = Level of Detail
+  = Level of Detail #exam_not_relevant_marker
   == Morph-LoD
   #set align(horizon + center)
   #figure()[

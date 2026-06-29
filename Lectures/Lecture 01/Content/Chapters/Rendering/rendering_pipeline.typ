@@ -4,7 +4,7 @@
 #subchapter-title-slide(section-name: [Rendering Pipeline])
 
 #slide[
-  = Klassische Rendering-Pipeline
+  = Klassische Rendering-Pipeline 
   #set align(horizon)
   - Pipeline = Arbeitsschritte zur Darstellung von 2D Graﬁken von 3D Objekten
   #figure()[
@@ -27,7 +27,7 @@
 ]
 
 #slide[
-  = Klassische Rendering-Pipeline
+  = Klassische Rendering-Pipeline 
   #set align(horizon)
   - Umwandeln der 3D-Welt in (normalisierte) Kamerakoordinaten
   - Ausschnitt & Bestimmung der sichtbaren Oberﬂächen
@@ -37,8 +37,7 @@
 ]
 
 #slide[
-  //TODO: Finish Rendering Pipeline diagram
-  = Klassische Rendering-Pipeline
+  = Klassische Rendering-Pipeline 
   #set align(horizon + center)
   #figure()[
     #let default-node-width = 175pt
@@ -75,7 +74,7 @@
 ]
 
 #slide[
-  = Klassische Rendering-Pipeline
+  = Klassische Rendering-Pipeline 
   #set align(horizon)
   - 3D ist wie das Aufnehmen eines Fotos (... vieler Fotos)
   #image("../../../Images/model_view_camera.png", fit: "contain")

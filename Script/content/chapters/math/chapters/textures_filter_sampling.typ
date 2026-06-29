@@ -1,1 +1,0 @@
-== Textures, Filtering und Sampling

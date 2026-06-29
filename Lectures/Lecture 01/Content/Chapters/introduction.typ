@@ -4,40 +4,170 @@
 #chapter-title-slide(section-name: [Einführung])
 
 #slide[
-  = Was ist Computergrafik
+  = Begriff der _Computergrafik_ #exam_not_relevant_marker
   #set align(horizon)
-  Der Begriff _Computergrafik_
-  - geht zurück auf William Fetter (1928-2002), 1960
-  - Name für neue Konstruktionsmethoden, die er bei Boeing verfolgte
-  - Fetter, der das Cockpit-Design erforschte, schuf auf einem Stiftplotter mit Hilfe eines 3D-Modells eines menschlichen Körpers weitgehend reproduzierte Bilder
+  #grid(
+    columns: (1fr, 0.5fr),
+    inset: 15pt,
+    align: top + left,
+    [
+      Der Begriff _Computergrafik_
+      - geht zurück auf William Fetter (1928-2002), 1960
+      - Name für neue Konstruktionsmethoden, die er bei Boeing verfolgte
+      - Fetter, der das Cockpit-Design erforschte, schuf auf einem Stiftplotter mit Hilfe eines 3D-Modells eines menschlichen Körpers weitgehend reproduzierte Bilder
+    ], [
+      #figure(
+        image("../../Images/william_fetter.jpg", fit: "contain"),
+        caption: [
+          William A. Fetter, als er bei Boeing arbeitete.
+        ]
+      )
+    ]
+  )
+  
 ]
 
 #slide[
-  = Was ist 3D Computergrafik
-  #set align(horizon)
-  #text(style: "italic")[
-    “Perhaps the best way to deﬁne computer graphics is to ﬁnd out what it is not. 
-    It is not a machine. 
-    It is not a computer, nor a group of computer programs. 
-    It is not the know-how of a graphic designer, a programmer, a writer, a motion picture specialist, or a reproduction specialist. \
+  = Begriff der _Computergrafik_ #exam_not_relevant_marker
+  == Boeing Man
+  #set align(horizon + center)
+  #figure(
+    image("../../Images/boeing_man.jpg", fit: "contain", width: 50%),
+    caption: [
+      Der "Boeing Man". Eine Wireframe Darstellung eines Piloten, gedruckt auf einem Gerber Plotter.
+    ]
+  )
+]
 
-    Computer graphics is all these - a consciously managed and documented technology directed toward communicating information accurately and descriptively.”
+#slide[
+  = Begriff der _Computergrafik_ #exam_not_relevant_marker
+  == Definition
+  #set align(horizon + center)
+  #definition[Computergrafik][
+    Die Computergrafik ist ein Teilgebiet der Informatik, das sich mit der computergestützten Bilderzeugung, im weiteren Sinne auch mit der Bildbearbeitung befasst. 
+    Mit den Mitteln der Computergrafik entstandene Bilder werden Computergrafiken genannt.
   ]
-
-  #text(weight: "light")[Computer Graphics, by William A. Fetter, 1966]
 ]
 
 #slide[
-  = Was ist 3D Computergrafik
+  = Entwicklung der Computergrafik #exam_not_relevant_marker
+  #set align(horizon + center)
+  #figure(
+    image("../../Images/Spheres_and_Checkerboard_-_Turner_Whitted.jpg", width: 60%),
+    gap: 20pt,
+    caption: [
+      Eine der ersten Computergrafiken mit Lichtspiegelungs- und Brechungseffekten (1980)
+    ]
+  )
+]
+
+#slide[
+  = Entwicklung der Computergrafik #exam_not_relevant_marker
+  #set align(horizon + center)
+  #figure(
+    image("../../Images/elite_game.png", width: 60%),
+    gap: 20pt,
+    caption: [
+      Elite (1984)
+    ]
+  )
+]
+
+#slide[
+  = Entwicklung der Computergrafik #exam_not_relevant_marker
+  #set align(horizon + center)
+  #figure(
+    image("../../Images/unreal_1998.jpg", width: 90%),
+    gap: 20pt,
+    caption: [
+      Unreal (1998)
+    ]
+  )
+]
+
+#slide[
+  = Entwicklung der Computergrafik #exam_not_relevant_marker
+  #set align(horizon + center)
+  #figure(
+    image("../../Images/ms-flight-sim.jpg", width: 90%),
+    gap: 20pt,
+    caption: [
+      Microsoft Flight Simulator 2024
+    ]
+  )
+]
+
+// #slide[
+//   = Was ist 3D Computergrafik
+//   #set align(horizon)
+//   Computergrafik (CG) ist ein Bereich der visuellen Datenverarbeitung, in dem Computer sowohl zur synthetischen Erzeugung visueller Bilder als auch zur Integration oder Veränderung visueller und räumlicher Informationen aus der realen Welt eingesetzt werden.
+
+//   - Geometry-based Graphics
+//   - Sample-based Graphics
+// ]
+
+#slide[
+  = Historischer Überblick #exam_not_relevant_marker
   #set align(horizon)
-  Computer graphics (CG) is the ﬁeld of visual computing, where one utilizes computers both to generate visual images synthetically and to integrate or alter visual and spatial information sampled from the real world. [Wikipedia]
-
-  -> Geometry-based Graphics \
-  -> Sample-based Graphics
+  - Zeichenanzeigen (1960-heute)
+  - Vektordarstellung (1963-1980er Jahre)
+  - 2D-Bitmap-Rasteranzeigen für PCs und Workstations
+  - 3D-Grafik-Workstations
+  - Grafikkarten und GPUs
 ]
 
 #slide[
-  = Was ist 3D Computergrafik
+  = 3D Computergrafik in Videospielen #exam_not_relevant_marker
+  #set align(horizon)
+  - 1952: erstes grafisches Videospiel OXO von Alexander Douglas
+  - 1958: Tennis for two, erstes interaktives Videospiel
+  - 1961: Spacewar!, entwicklet am MIT
+  - 1972: Gründung von ATARI, Entwicklung von PONG
+  - 1978: Space Invaders, erstes Spiel in Farbe
+  - 1979: Asteroids > 50.000 verkaufte Exemplare
+  - 1994: Veröffentlichung von Sega Saturn und Sony Playstation
+  - 1996: Veröffentlichung von Nintendo 64
+  - Hardware ermöglichte erstmals 3D-Grafikdarstellung
+]
+
+#slide[
+  = 3D Computergrafik in Filmen #exam_not_relevant_marker
+  #set align(horizon)
+  - Pixars erster Kurzfilm: Die Abenteuer von Andre und Wally.B (1984)
+  - Toy Story als erster vollständig 3D-Animietert Film (1995)
+  - Vorgänger: Tin Toy (1988)
+  - Animationsfilme mit Blender:
+    - Elephant's Dream
+    - Big Buck Bunny
+]
+
+#slide[
+  = Neue Formen digitaler Medien #exam_not_relevant_marker
+  #set align(horizon)
+  - Virtuelle Realität (fully immersive VR)
+  - CAVE, HMDs
+  - Semi-immersive VR
+  - Augmented Reality
+]
+
+#slide[
+  = Hardwareentwicklung #exam_not_relevant_marker
+  #set align(horizon)
+  - Spieleplattformen:
+    - #text(weight: "light", "Xbox Series: 52 CUs@1,825 GHz mit 12,15 TeraFlops")
+    - #text(weight: "light", "Playstation 5: AMD RDNA2 36 CUs @ 2,23 GHz mit 10,28 TeraFlops")
+  - Top Grafikkarten:
+    - #text(weight: "light")[Benchmarks ermöglichen Ranking von GPUs]
+    - #text(weight: "light")[momentan: GeForce RTX 5090]
+  - Advances in transistor counts ... (CPUs and GPUs)
+    - #text(weight: "light")[AMD Ryzen (2017) has 4.8 billion transistors]
+    - #text(weight: "light")[GeForce GTX 1080 (single core) has 7.2 billion transistors]
+    - #text(weight: "light")[Geforce GTX 2080 Ti (dual core) has 18.6 billion transistors]
+    - #text(weight: "light")[Radeon Fury has 8.9 billion, Radeon Pro Duo (dual core) has 17.8 billion transistors]
+]
+
+#slide[
+  = Bestandteile der 3D Computergrafik 
   #set align(horizon)
   - *Modeling* = Repräsentation von 3D Objekten
   - *Rendering* = Erstellung von 2D Bildern aus 3D Modellen
@@ -79,62 +209,4 @@
   ]
 ]
 
-#slide[
-  = Historischer Überblick
-  #set align(horizon)
-  - Zeichenanzeigen (1960-heute)
-  - Vektordarstellung (1963-1980er Jahre)
-  - 2D-Bitmap-Rasteranzeigen für PCs und Workstations
-  - 3D-Grafik-Workstations
-  - Grafikkarten und GPUs
-]
 
-#slide[
-  = 3D Computergrafik in Videospielen
-  #set align(horizon)
-  - 1952: erstes grafisches Videospiel OXO von Alexander Douglas
-  - 1958: Tennis for two, erstes interaktives Videospiel
-  - 1961: Spacewar!, entwicklet am MIT
-  - 1972: Gründung von ATARI, Entwicklung von PONG
-  - 1978: Space Invaders, erstes Spiel in Farbe
-  - 1979: Asteroids > 50.000 verkaufte Exemplare
-  - 1994: Veröffentlichung von Sega Saturn und Sony Playstation
-  - 1996: Veröffentlichung von Nintendo 64
-  - Hardware ermöglichte erstmals 3D-Grafikdarstellung
-]
-
-#slide[
-  = 3D Computergrafik in Filmen
-  #set align(horizon)
-  - Pixars erster Kurzfilm: Die Abenteuer von Andre und Wally.B (1984)
-  - Toy Story als erster vollständig 3D-Animietert Film (1995)
-  - Vorgänger: Tin Toy (1988)
-  - Animationsfilme mit Blender:
-    - Elephant's Dream
-    - Big Buck Bunny
-]
-
-#slide[
-  = Neue Formen digitaler Medien
-  #set align(horizon)
-  - Virtuelle Realität (fully immersive VR)
-  - CAVE, HMDs
-  - Semi-immersive VR
-  - Augmented Reality
-]
-
-#slide[
-  = Hardwareentwicklung
-  #set align(horizon)
-  - Spieleplattformen:
-    - #text(weight: "light", "Xbox Series: 52 CUs@1,825 GHz mit 12,15 TeraFlops")
-    - #text(weight: "light", "Playstation 5: AMD RDNA2 36 CUs @ 2,23 GHz mit 10,28 TeraFlops")
-  - Top Grafikkarten:
-    - #text(weight: "light")[Benchmarks ermöglichen Ranking von GPUs]
-    - #text(weight: "light")[momentan: GeForce RTX 5090]
-  - Advances in transistor counts ... (CPUs and GPUs)
-    - #text(weight: "light")[AMD Ryzen (2017) has 4.8 billion transistors]
-    - #text(weight: "light")[GeForce GTX 1080 (single core) has 7.2 billion transistors]
-    - #text(weight: "light")[Geforce GTX 2080 Ti (dual core) has 18.6 billion transistors]
-    - #text(weight: "light")[Radeon Fury has 8.9 billion, Radeon Pro Duo (dual core) has 17.8 billion transistors]
-]

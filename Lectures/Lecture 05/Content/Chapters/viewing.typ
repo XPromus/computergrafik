@@ -4,7 +4,7 @@
 #chapter-title-slide(section-name: [Viewing])
 
 #slide[
-  = Historie
+  = Historie #exam_not_relevant_marker
   #set align(horizon)
 
   - Planansicht (orthografische Projektion) aus Mesopotamien, 2150 v. Chr.
@@ -20,7 +20,7 @@
 ]
 
 #slide[
-  = Frühe Perspektive
+  = Frühe Perspektive #exam_not_relevant_marker
   #set align(horizon)
 
   - Möglichkeiten, den dreidimensionalen Raum aufzurufen:
@@ -34,7 +34,7 @@
 ]
 
 #slide[
-  = Alberti
+  = Alberti #exam_not_relevant_marker
   #set align(horizon)
 
   - Veröffentlichung der ersten Abhandlung über die Perspektive, Della Pittura, im Jahr 1435
@@ -398,12 +398,12 @@
   )
 ]
 
-#slide[
-  = Special Camera FX
-  == Motion Blur
-  #set align(horizon)
-  //TODO: Write Motion Blur Chapter
-]
+// #slide[
+//   = Special Camera FX
+//   == Motion Blur
+//   #set align(horizon)
+//   //TODO: Write Motion Blur Chapter
+// ]
 
 // #slide[
 //   = Special Camera FX

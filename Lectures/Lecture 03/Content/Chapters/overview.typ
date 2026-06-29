@@ -1,5 +1,5 @@
 #import "../../Template/definitions.typ": *
-#import "../../Template/template.typ": hszg-green, chapter-title-slide, subchapter-title-slide
+#import "../../Template/template.typ": *
 
 #chapter-title-slide(section-name: [Übersicht])
 

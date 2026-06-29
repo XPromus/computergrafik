@@ -1,1 +1,0 @@
-= Methoden der Computeranimation

@@ -1,11 +1,11 @@
 #import "../../../Template/definitions.typ": *
-#import "../../../Template/template.typ": subchapter-title-slide
+#import "../../../Template/template.typ": *
 
 #let chapter_name = [Z-Buffer]
 #subchapter-title-slide(section-name: chapter_name)
 
 #slide[
-  = Z-Buffer
+  = Z-Buffer 
   #set align(horizon)
   - Buffer mit Pixel-Informationen
     - Bild-Buffer, mit Pixelfarbe
@@ -21,7 +21,7 @@
 ]
 
 #slide[
-  = Z-Buffer
+  = Z-Buffer 
   #set align(horizon)
   - sehr schnell 
   - In fast allen Grafikkarten implementiert
@@ -31,7 +31,7 @@
 ]
 
 #slide[
-  = #chapter_name
+  = #chapter_name 
   == Z-Fighting
   #set align(horizon)
   - kann im Falle von komplanaren Polygonen auftreten (Abbildung)

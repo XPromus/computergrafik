@@ -1,1 +1,0 @@
-typst watch main.typ zusammenfassung.pdf

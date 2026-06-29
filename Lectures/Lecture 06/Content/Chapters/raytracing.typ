@@ -22,7 +22,7 @@
 ]
 
 #slide[
-  = Global vs. Lokal
+  = Global vs. Lokal #exam_not_relevant_marker
   #set align(horizon)
 
   #figure(
@@ -31,7 +31,7 @@
 ]
 
 #slide[
-  = Global vs. Lokal
+  = Global vs. Lokal #exam_not_relevant_marker
   #set align(horizon)
 
   #figure(
@@ -40,7 +40,7 @@
 ]
 
 #slide[
-  = Raytracing
+  = Raytracing #exam_not_relevant_marker
   #set align(horizon)
 
   #grid(
@@ -579,7 +579,7 @@
 ]
 
 #slide[
-  = Path Tracing
+  = Path Tracing #exam_not_relevant_marker
   #set align(horizon)
 
   #figure(
@@ -588,7 +588,7 @@
 ]
 
 #slide[
-  = Path Tracing
+  = Path Tracing #exam_not_relevant_marker
   #set align(horizon)
 
   #figure(
@@ -663,7 +663,7 @@
 ]
 
 #slide[
-  = Beispiele
+  = Beispiele #exam_not_relevant_marker
   #set align(horizon)
 
   - LuxCoreRender - Open Source Physically Based Renderer

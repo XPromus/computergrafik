@@ -28,7 +28,7 @@
 ]
 
 #slide[
-  = Historie
+  = Historie #exam_not_relevant_marker
   #set align(horizon)
 
   #showybox(
@@ -149,7 +149,7 @@
 ]
 
 #slide[
-  = Billboard Quads
+  = Billboard Quads #exam_not_relevant_marker
   #set align(horizon)
 
   #grid(

@@ -1,5 +1,5 @@
 #import "../../../Template/definitions.typ": slide
-#import "../../../Template/template.typ": subchapter-title-slide, hszg-green
+#import "../../../Template/template.typ": *
 
 #import "@preview/showybox:2.0.4": showybox
 
@@ -7,7 +7,7 @@
 #subchapter-title-slide(section-name: chapter_name)
 
 #slide[
-  = #chapter_name
+  = #chapter_name 
   #set align(horizon)
   - Ein, oft als Box, definierter Bereich, der alles abdeckt, was die Kamera sieht 
   - Alles, was sich in dem #chapter_name befindet wird gerendert.
@@ -31,7 +31,7 @@
 ]
 
 #slide[
-  = #chapter_name
+  = #chapter_name 
   #set align(horizon)
   Welt verzerren, bis das Betrachtungsvolumen in Welt in ein paralleles kanonisches Betrachtungsvolumen passt
   - vereinfacht Beschneiden/Entfernen verdeckter Oberflächen/Schattierungen
@@ -43,7 +43,7 @@
 ]
 
 #slide[
-  = #chapter_name
+  = #chapter_name 
   #set align(horizon)
   Die 3D zu 2D-Projektion (in die "Projektionsebene") ist jetzt einfach:
   - Ignorieren Sie einfach den z-Wert!
@@ -55,7 +55,7 @@
 ]
 
 #slide[
-  = #chapter_name
+  = #chapter_name 
   == Viewing Frustum (Sichtkegel)
   #set align(horizon)
   - #chapter_name ist nah mit dem Viewing Frustum verwandt
@@ -68,7 +68,7 @@
 ]
 
 #slide[
-  = #chapter_name
+  = #chapter_name 
   == Viewing Frustum (Sichtkegel)
   #set align(horizon)
   #figure(
@@ -77,7 +77,7 @@
 ]
 
 #slide[
-  = #chapter_name
+  = #chapter_name 
   == Viewing Frustum (Sichtkegel)
   #set align(horizon)
   - Der Viewing Frustum wird in das #chapter_name transformiert

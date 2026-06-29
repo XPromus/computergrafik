@@ -6,7 +6,7 @@
 
 #subchapter-title-slide(section-name: [Motivation])
 #slide[
-  = Motivation
+  = Motivation #exam_not_relevant_marker
   #set align(horizon)
 
   #align(center)[Mehr Realismus und Atmosphäre]
@@ -23,7 +23,7 @@
 ]
 
 #slide[
-  = Motivation
+  = Motivation #exam_not_relevant_marker
   #set align(horizon)
 
   - Hinweise über Rauminformationen
@@ -35,7 +35,7 @@
 ]
 
 #slide[
-  = Motivation
+  = Motivation #exam_not_relevant_marker
   #set align(horizon)
 
   - Simple Schatten besser als keine Schatten
@@ -303,7 +303,7 @@
 ]
 
 #slide[
-  = Multiple Lights
+  = Multiple Lights #exam_not_relevant_marker
   #set align(horizon)
 
   ```javascript
@@ -492,7 +492,7 @@
 ]
 
 #slide[
-  = Beispiel
+  = Beispiel #exam_not_relevant_marker
   #set align(horizon)
 
   #figure(

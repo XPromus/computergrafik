@@ -1,5 +1,5 @@
 #import "../../Template/definitions.typ": *
-#import "../../Template/template.typ": hszg-green, chapter-title-slide
+#import "../../Template/template.typ": *
 
 #chapter-title-slide(section-name: [Polygon Meshes])
 
@@ -22,7 +22,7 @@
 ]
 
 #slide[
-  = Polygon Meshes
+  = Polygon Meshes #exam_not_relevant_marker
   #set align(horizon)
   #toolbox.side-by-side()[
     Tori in verschiedenen Polygonauﬂösungsstufen:
@@ -38,7 +38,7 @@
 ]
 
 #slide[
-  = Polygon Meshes
+  = Polygon Meshes #exam_not_relevant_marker
   #set align(horizon + center)
   #figure()[
     #image("../../Images/polygon_modes.png", fit: "contain")

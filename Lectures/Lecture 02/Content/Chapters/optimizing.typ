@@ -1,5 +1,5 @@
 #import "../../Template/definitions.typ": *
-#import "../../Template/template.typ": hszg-green, chapter-title-slide
+#import "../../Template/template.typ": *
 
 #let cCircle(pos, custom_scale: int, name: str, cfill: color) = {
   import cetz.draw: *
@@ -140,7 +140,7 @@
 ]
 
 #slide[
-  = Progressive Meshes
+  = Progressive Meshes #exam_not_relevant_marker
   == Edge Collapse
   #set align(horizon + center)
 

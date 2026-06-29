@@ -1,12 +1,11 @@
 #import "../../Template/definitions.typ": *
-#import "../../Template/template.typ": chapter-title-slide
-// #import "../../Components/chapter_titile_slide.typ": chapter-title-slide
+#import "../../Template/template.typ": *
 
 #let chapter_title = [Anwendung]
 #chapter-title-slide(section-name: chapter_title)
 
 #slide[
-  = #chapter_title
+  = #chapter_title #exam_not_relevant_marker
   #set align(horizon)
   #toolbox.side-by-side()[
     - Entertainment
@@ -29,7 +28,7 @@
 ]
 
 #slide[
-  = #chapter_title
+  = #chapter_title #exam_not_relevant_marker
   #set align(horizon)
   #toolbox.side-by-side()[
     - Entertainment
@@ -56,7 +55,7 @@
 ]
 
 #slide[
-  = #chapter_title
+  = #chapter_title #exam_not_relevant_marker
   #set align(horizon)
   #toolbox.side-by-side()[
     - Entertainment
@@ -82,7 +81,7 @@
 ]
 
 #slide[
-  = #chapter_title
+  = #chapter_title #exam_not_relevant_marker
   #set align(horizon)
   #toolbox.side-by-side()[
     - Entertainment

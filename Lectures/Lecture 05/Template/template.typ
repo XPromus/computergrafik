@@ -3,6 +3,13 @@
 #let hszg-green = rgb("#88BD21")
 #let footer-font-size = 13pt
 
+#let exam_not_relevant_marker = text()[
+  #emoji.noentry
+]
+#let exam_relevant_marker = text()[
+  #emoji.pencil#emoji.excl
+]
+
 #let sections-band = toolbox.all-sections( (sections, current) => {
   set text(fill: black, size: footer-font-size)
   sections

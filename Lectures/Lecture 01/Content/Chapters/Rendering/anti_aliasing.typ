@@ -1,11 +1,11 @@
 #import "../../../Template/definitions.typ": *
-#import "../../../Template/template.typ": subchapter-title-slide
+#import "../../../Template/template.typ": *
 
 #let chapter_name = [Anti-Aliasing]
 #subchapter-title-slide(section-name: chapter_name)
 
 #slide[
-  = #chapter_name
+  = #chapter_name 
   #set align(horizon)
   - Probleme mit der Rasterung
     - Darstellung einer Linie mit diskreten Pixelwerten ist die Abtastung einer
@@ -26,7 +26,7 @@
 ]
 
 #slide[
-  = #chapter_name
+  = #chapter_name 
   == Typen
   #set align(horizon)
   - Supersampling Anti-Aliasing (*SSAA*)
@@ -39,7 +39,7 @@
 ]
 
 #slide[
-  = #chapter_name
+  = #chapter_name 
   == Supersampling Anti-Aliasing (SSAA)
   #set align(horizon)
   - Erhöhung der Auflösung der Samples
@@ -50,7 +50,7 @@
 ]
 
 #slide[
-  = #chapter_name
+  = #chapter_name 
   == Temporal Anti-Aliasing (TAA)
   #set align(horizon)
   *Temporal Anti-Aliasing (TAA)* \
@@ -64,7 +64,7 @@
 ]
 
 #slide[
-  = #chapter_name
+  = #chapter_name #exam_not_relevant_marker
   == Temporal Anti-Aliasing (TAA)
   #set align(horizon + center)
   #figure(
@@ -74,14 +74,14 @@
 ]
 
 #slide[
-  = #chapter_name
+  = #chapter_name #exam_not_relevant_marker
   == Temporal Anti-Aliasing (TAA)
   #set align(horizon + center)
   #grid(
     columns: (1fr),
     grid.cell()[
       #figure(
-        image("../../../Images/assetto_corsa_rally_frame_1.png", width: 90%),
+        image("../../../Images/assetto_corsa_rally_frame_1.png", width: 80%),
         caption: [Frame aus dem Trailer von _Assetto Corsa Rally_. Man beachte die *Reifen*.]
       )
     ], grid.cell()[
@@ -94,7 +94,7 @@
 ]
 
 #slide[
-  = #chapter_name
+  = #chapter_name #exam_not_relevant_marker
   #set align(horizon + center)
   #text(weight: "bold", size: 30pt)[
     Weitere Details folgen

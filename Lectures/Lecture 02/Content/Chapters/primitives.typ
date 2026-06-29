@@ -1,10 +1,10 @@
 #import "../../Template/definitions.typ": *
-#import "../../Template/template.typ": hszg-green, chapter-title-slide, subchapter-title-slide
+#import "../../Template/template.typ": *
 
 #chapter-title-slide(section-name: [Grafikprimitive])
 
 #slide[
-  = Grafikprimitive
+  = Grafikprimitive #exam_not_relevant_marker
   #set align(horizon + center)
   #figure()[
     #image("../../Images/primitives.png", fit: "contain", width: 90%)
@@ -12,7 +12,7 @@
 ]
 
 #slide[
-  = Grafikprimitive
+  = Grafikprimitive #exam_not_relevant_marker
   #set align(horizon)
   - OpenGL Compatibility Proﬁle (10 Primitive) vs. Core Proﬁle (7 Primitive)
   - Vulkan reduziert auf 6 Primitive, zusätzliche Primitive für spezielle Shader möglich (bspw. #text("_LINE LIST WITH ADJACENCY"))
@@ -114,7 +114,7 @@
 ]
 
 #slide[
-  = Triangle Strips
+  = Triangle Strips #exam_not_relevant_marker
   == OpenGL Implementation
   #set align(horizon)
   #figure()[
@@ -138,7 +138,7 @@
 ]
 
 #slide[
-  = Triangle Strips
+  = Triangle Strips #exam_not_relevant_marker
   #set align(horizon)
   #figure()[
     #image("../../Images/triangle_strips.png", fit: "contain", width: 75%)
@@ -176,7 +176,7 @@
 // ]
 
 #slide[
-  = Triangle Strips
+  = Triangle Strips #exam_not_relevant_marker
   == Erstellung
   #set align(horizon)
 
@@ -203,7 +203,7 @@
 ]
 
 #slide[
-  = Triangle Strips
+  = Triangle Strips #exam_not_relevant_marker
   == Performance
   #set align(horizon)
   
@@ -216,7 +216,7 @@
 ]
 
 #slide[
-  = Triangle Strips
+  = Triangle Strips #exam_not_relevant_marker
   == Performance
   #set align(horizon)
 

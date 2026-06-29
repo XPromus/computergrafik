@@ -1,1 +1,0 @@
-== Kameras und Projektion

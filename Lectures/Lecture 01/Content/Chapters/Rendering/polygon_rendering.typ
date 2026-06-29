@@ -1,11 +1,11 @@
 #import "../../../Template/definitions.typ": *
-#import "../../../Template/template.typ": subchapter-title-slide, hszg-green
+#import "../../../Template/template.typ": *
 
 #let chapter_name = [Polygon-Rendering]
 #subchapter-title-slide(section-name: chapter_name)
 
 #slide[
-  = #chapter_name
+  = #chapter_name 
   #set align(horizon + center)
   #toolbox.side-by-side()[
     #figure(
@@ -30,7 +30,7 @@
 ]
 
 #slide[
-  = #chapter_name
+  = #chapter_name #exam_not_relevant_marker
   #set align(horizon + center)
   #figure(
     image("../../../Images/elite_wireframe.gif", fit: "contain", width: 70%),
@@ -43,7 +43,7 @@
 ]
 
 #slide[
-  = #chapter_name
+  = #chapter_name #exam_not_relevant_marker
   #set align(horizon + center)
   #figure(
     image("../../../Images/elite_filled_polygon.png", fit: "contain", width: 70%),
@@ -68,7 +68,7 @@
 ]
 
 #slide[
-  = Polygon-Rendering
+  = Polygon-Rendering 
   == Gefüllte Polygone
   #set align(horizon)
   - Füllen des Polygons mit jeweils einer Scanlinie
@@ -81,7 +81,7 @@
 ]
 
 #slide[
-  = Polygon-Rendering
+  = Polygon-Rendering 
   == Gefüllte Polygone
   #set align(horizon)
   *Inside-Test* \
@@ -92,7 +92,7 @@
 ]
 
 #slide[
-  = Polygon-Rendering
+  = Polygon-Rendering 
   == Gefüllte Polygone
   #set align(horizon)
   - Max-Min-Test: 2x, wenn lokales Maximum/Minimum, sonst 1x
@@ -103,7 +103,7 @@
 ]
 
 #slide[
-  = Polygon-Rendering
+  = Polygon-Rendering 
   == Gefüllte Polygone
   #set align(horizon)
   *Scan-Line Algorithmus* \

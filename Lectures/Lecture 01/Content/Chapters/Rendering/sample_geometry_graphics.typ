@@ -1,8 +1,8 @@
 #import "../../../Template/definitions.typ": *
-#import "../../../Components/chapter_titile_slide.typ": chapter-title-slide
+#import "../../../Template/template.typ": *
 
 #slide[
-  = Computergrafik Paradigmen
+  = Computergrafik Paradigmen 
   #grid(
     columns: (1fr, 1fr),
     inset: 15pt,
@@ -40,7 +40,7 @@
 ]
 
 #slide[
-  = Sample-Based vs. Geometry-Based
+  = Sample-Based vs. Geometry-Based  
   #set align(horizon)
   #grid(
     columns: (1fr, 1fr),
@@ -67,7 +67,7 @@
 ]
 
 #slide[
-  = Kombinieren der Paradigmen
+  = Kombinieren der Paradigmen 
   #set align(horizon)
   #grid(
     columns: (1fr, auto, 1fr, auto, 1fr),
@@ -87,7 +87,7 @@
 ]
 
 #slide[
-  = Sampling für den Monitor
+  = Sampling für den Monitor 
   #set align(horizon + center)
   #notice[Sampling zur finalen Darstellung][
     Immer wenn ein Bild auf einem Monitor dargestellt wird, muss Sampling durchgeführt werden. 

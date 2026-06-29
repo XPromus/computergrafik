@@ -255,21 +255,6 @@
   )
 ]
 
-// #slide[
-//   = Grafikpipeline
-//   == #text(fill: blue.lighten(50%), weight: "light")[Input Assembler] #text(fill: gray)[$arrow.l$] #h(1fr) #text(fill: hszg-green)[Vertex Shader] #h(1fr) #text(weight: "light", fill: gray)[$arrow$] #text(fill: blue.lighten(50%), weight: "light")[Tesselation]
-//   #set align(horizon + center)
-
-//   ```glsl
-//   struct INPUT {
-//     float4 position : POSITION;
-//     float2 uv : TEXCOORD;
-//     float3 normal : NORMAL;
-//     uint id : SV_VertexId;
-//   }
-//   ```
-// ]
-
 #slide[
   = Grafikpipeline
   == #text(fill: hszg-green.lighten(50%), weight: "light")[Vertex Shader] #text(fill: gray)[$arrow.l$] #h(1fr) #text(fill: blue)[Tesselation] #h(1fr) #text(weight: "light", fill: gray)[$arrow$] #text(fill: hszg-green.lighten(50%), weight: "light")[Geometry Shader]
