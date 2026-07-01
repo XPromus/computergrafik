@@ -1,2 +1,2 @@
 //Content
-#include "Chapters/radiosity.typ"
+#include "Chapters/particle_systems.typ"

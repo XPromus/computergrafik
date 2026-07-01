@@ -9,7 +9,7 @@
 
 #import "@preview/cetz:0.4.2": canvas, draw
 //#import "@preview/cetz-plot:0.1.3": plot, chart
-//#import draw: circle, content, line, scope, set-style, translate
+#import draw: circle, content, line, scope, set-style, translate
 
 #let custom-node(pos, label, color, name) = {
   content(pos, $V_#label$, frame: "circle", radius: 0.25, fill: color, stroke: 0.8pt, name: name, padding: 3.5pt)
@@ -24,3 +24,5 @@
 
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 #import fletcher.shapes: *
+
+#import "@preview/showybox:2.0.4": showybox
