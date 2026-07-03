@@ -172,7 +172,7 @@
 ]
 
 #slide[
-  = Mesh
+  = Mesh #exam_not_relevant_marker
   #set align(horizon)
 
   #grid(
@@ -283,7 +283,7 @@
 #chapter-title-slide(section-name: [Blender])
 
 #slide[
-  = Partikelsysteme in Blender
+  = Partikelsysteme in Blender #exam_not_relevant_marker
   #set align(horizon)
 
   - zur Darstellung ungeordneter Systeme
@@ -299,7 +299,7 @@
 ]
 
 #slide[
-  = Partikelsysteme in Blender
+  = Partikelsysteme in Blender #exam_not_relevant_marker
   #set align(horizon)
 
   - *Partikel* werden von *Emitter* ausgedehnt
@@ -313,7 +313,7 @@
 ]
 
 #slide[
-  = Partikelsysteme in Blender
+  = Partikelsysteme in Blender #exam_not_relevant_marker
   #set align(horizon)
 
   - Objekt auswählen, welches Emitter sein soll
@@ -328,7 +328,7 @@
 ]
 
 #slide[
-  = Partikelsysteme in Blender
+  = Partikelsysteme in Blender #exam_not_relevant_marker
   #set align(horizon)
 
   - kann für strähnenartige Objekte wie Haare, Fell, Gras, Federkiele usw. verwendet werden
@@ -341,7 +341,7 @@
 ]
 
 #slide[
-  = Partikelsysteme in Blender
+  = Partikelsysteme in Blender #exam_not_relevant_marker
   #set align(horizon)
 
   #grid(
@@ -361,7 +361,7 @@
 #chapter-title-slide(section-name: [Zusammenfassung])
 
 #slide[
-  = Zusammenfassung
+  = Zusammenfassung #exam_not_relevant_marker
   #set align(horizon)
 
   - Systeme, die zur Modellierung vieler Naturphänomene verwendet werden
@@ -375,7 +375,7 @@
 ]
 
 #slide[
-  = Zusammenfassung
+  = Zusammenfassung #exam_not_relevant_marker
   == Physics
   #set align(horizon)
 
@@ -391,7 +391,7 @@
 ]
 
 #slide[
-  = Zusammenfassung
+  = Zusammenfassung #exam_not_relevant_marker
   == Physics
   #set align(horizon)
 

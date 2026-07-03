@@ -242,7 +242,7 @@
 ]
 
 #slide[
-  = Axonometrische Projektion
+  = Axonometrische Projektion #exam_not_relevant_marker
   #set align(horizon)
 
   - Bewegung der Projektionsebene relativ zum Objekt zulassen
@@ -257,7 +257,7 @@
 ]
 
 #slide[
-  = Axonometrische Projektion
+  = Axonometrische Projektion #exam_not_relevant_marker
   #set align(horizon)
 
   #toolbox.side-by-side()[
@@ -274,7 +274,7 @@
 #chapter-title-slide(section-name: [Oblique Projection])
 
 #slide[
-  = Schrägprojektion / Oblique Projection
+  = Schrägprojektion / Oblique Projection #exam_not_relevant_marker
   #set align(horizon)
 
   - Projektionsebene parallel zu einer der Koordinatenebenen
@@ -291,7 +291,7 @@
 ]
 
 #slide[
-  = Schrägprojektion / Oblique Projection
+  = Schrägprojektion / Oblique Projection #exam_not_relevant_marker
   #set align(horizon)
 
   #figure(
@@ -313,7 +313,7 @@
       *2. Axonometrisch*
       - VPN nicht parallel zu einer Hauptkoordinatenachse
       - DOP parallel zur VPN
-      *3. Schräg*
+      *3. Schräg* #exam_not_relevant_marker
       - VPN parallel zu einer Hauptkoordinatenachse
       - DOP nicht parallel zur VPN
     ], [
@@ -386,7 +386,7 @@
 #chapter-title-slide(section-name: [Special Camera FX])
 
 #slide[
-  = Special Camera FX
+  = Special Camera FX #exam_not_relevant_marker
   == Depth of Field
   #set align(horizon)
 

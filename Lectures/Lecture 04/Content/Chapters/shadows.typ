@@ -139,7 +139,7 @@
 
 #subchapter-title-slide(section-name: [Modelle])
 #slide[
-  = Modelle
+  = Modelle #exam_not_relevant_marker
   == Simple Shadows
   #set align(horizon)
 
